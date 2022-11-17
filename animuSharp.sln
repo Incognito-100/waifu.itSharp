@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "animuSharp.Client", "animuSharp.Client\animuSharp.Client.csproj", "{604FE5C0-69DE-4827-B68D-8A80313782A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimuSharp.Tests", "AnimuSharp.Tests\AnimuSharp.Tests.csproj", "{C48D1CEF-8043-42A3-A076-508F6BEB2A34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{604FE5C0-69DE-4827-B68D-8A80313782A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{604FE5C0-69DE-4827-B68D-8A80313782A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{604FE5C0-69DE-4827-B68D-8A80313782A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{604FE5C0-69DE-4827-B68D-8A80313782A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48D1CEF-8043-42A3-A076-508F6BEB2A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48D1CEF-8043-42A3-A076-508F6BEB2A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48D1CEF-8043-42A3-A076-508F6BEB2A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48D1CEF-8043-42A3-A076-508F6BEB2A34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F428FAF5-90D2-4DD5-BE8B-A32662FC60E8}
+	EndGlobalSection
+EndGlobal
