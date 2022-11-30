@@ -4,6 +4,29 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>animuSharp</PackageId>
+    <Title>animuSharp The animu C# wrapper</Title>
+    <Version>1.0.7</Version>
+    <Authors>IVH</Authors>
+    <Company>IVH</Company>
+    <Product>animuSharp</Product>
+    <Description>a C# wrapper for animu</Description>
+    <PackageProjectUrl>https://github.com/Incognito-100/animuSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Incognito-100/animuSharp</RepositoryUrl>
+    <PackageTags>animu,c#,wrapper</PackageTags>
+    <PackageReleaseNotes>added tests</PackageReleaseNotes>
+    <AssemblyVersion>1.0.0.7</AssemblyVersion>
+    <FileVersion>1.0.0.7</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>

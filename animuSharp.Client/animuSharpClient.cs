@@ -10,13 +10,13 @@ namespace animuSharp.Client
     /// </summary>
     public class Client
     {
-        private static readonly string baBaseURL = "https://animu.ml/api";
+        private const string BaBaseUrl = "https://animu.ml/api";
         private static string key;
 
         /// <summary>
-        ///  Create a new instanse of the client
+        ///  Create a new instance of the client
         /// </summary>
-        /// <param name="apiKey">apiKey for makeing requests NOTE: it has a 5 requests/second ratelimit</param>
+        /// <param name="apiKey">apiKey for making requests NOTE: it has a 5 requests/second rate-limit</param>
         public Client(string apiKey)
         {
             key = apiKey;
@@ -26,7 +26,7 @@ namespace animuSharp.Client
         }
 
         /// <summary>
-        /// get a url if the desierd content
+        /// get a url if the desired content
         /// </summary>
         /// <param name="content">the type of content you want to get select from <see cref="ContentType"/></param>
         /// <returns>a url of the selected item</returns>
@@ -309,7 +309,7 @@ namespace animuSharp.Client
                     throw new Exception("no value given");
             }
 
-            string nl = baBaseURL + sb.ToString();
+            string nl = BaBaseUrl + sb.ToString();
 
             return await GetResponse<Generic>(nl).ConfigureAwait(false);
         }
@@ -322,7 +322,7 @@ namespace animuSharp.Client
         {
             StringBuilder sre = new StringBuilder("/waifu");
 
-            string end = baBaseURL + sre.ToString();
+            string end = BaBaseUrl + sre.ToString();
 
             return await GetResponse<Waifu>(end).ConfigureAwait(false);
         }
