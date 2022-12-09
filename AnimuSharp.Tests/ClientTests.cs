@@ -5,11 +5,13 @@ namespace AnimuSharp.Tests
 {
     public class ClientTests
     {
+        public const string apikey = "";
+
         [Fact]
         public async Task GetURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            var client = new Client("Key");
+            var client = new Client(apikey);
 
             // Act
             var result = await client.GetURl(ContentType.angry);
@@ -23,7 +25,7 @@ namespace AnimuSharp.Tests
         public async Task GetwaifuURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            var client = new Client("Key");
+            var client = new Client(apikey);
 
             // Act
             var result = await client.GetwaifuURl();
