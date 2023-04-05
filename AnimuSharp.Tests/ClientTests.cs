@@ -1,11 +1,6 @@
-﻿using NSubstitute;
-using System;
-using System.Threading.Tasks;
-using Xunit;
-using animuSharp.Client;
+﻿using animuSharp.Client;
 using animuSharp.Client.Internals.Enums;
-using NSubstitute.Core;
-using static AnimuSharp.Tests.ClientTests;
+using Xunit;
 
 namespace AnimuSharp.Tests
 {
@@ -17,16 +12,11 @@ namespace AnimuSharp.Tests
 
         private const string apikey = "76a65670f12f6f6546b24c90335b88456ee5e864fce3";
 
-        private Client CreateClient()
-        {
-            return new Client(apikey);
-        }
-
         [Fact]
         public async Task GetURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            var client = this.CreateClient();
+            Client client = new Client(apikey);
             ContentType content = ContentType.angry;
 
             // Act
@@ -40,7 +30,7 @@ namespace AnimuSharp.Tests
         public async Task GetwaifuURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            var client = this.CreateClient();
+            Client client = new Client(apikey);
 
             // Act
             var result = await client.GetwaifuURl();

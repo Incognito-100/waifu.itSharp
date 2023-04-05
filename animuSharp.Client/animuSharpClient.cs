@@ -1,7 +1,6 @@
 ﻿using animuSharp.Client.Internals.DataTypes;
 using animuSharp.Client.Internals.Enums;
 using Newtonsoft.Json;
-using System.Text;
 
 namespace animuSharp.Client
 {
