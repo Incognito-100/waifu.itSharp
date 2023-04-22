@@ -9,8 +9,9 @@ namespace animuSharp.Client
     /// </summary>
     public class Client
     {
-        private const string BaBaseUrl = "https://animu.ml/api";
-        private static string key;
+        private const string BaseUrl = "https://waifu.it/api";
+        private readonly HttpClient _httpClient;
+        private readonly string _apiKey;
 
         /// <summary>
         ///  Create a new instance of the client
@@ -18,62 +19,58 @@ namespace animuSharp.Client
         /// <param name="apiKey">apiKey for making requests NOTE: it has a 5 requests/second rate-limit</param>
         public Client(string apiKey)
         {
-            key = apiKey;
-            HttpClient client = new();
+            _apiKey = apiKey;
             // API requires use of a key, so add it to the headers
-            client.DefaultRequestHeaders.Add("Auth", key);
+            _httpClient.DefaultRequestHeaders.Add("Auth", _apiKey);
         }
 
         /// <summary>
-        /// get a url if the desired content
+        /// Gets a URL of the desired content.
         /// </summary>
-        /// <param name="content">the type of content you want to get select from <see cref="ContentType"/></param>
-        /// <returns>a url of the selected item</returns>
+        /// <param name="content">The type of content you want to get, select from <see cref="ContentType"/>.</param>
+        /// <returns>A URL of the selected item.</returns>
         /// <exception cref="Exception"></exception>
-        public async Task<Generic> GetURl(ContentType content)
+        public async Task<Data.Generic> GetURl(ContentType content)
         {
             var endpoint = $"/{content.ToString().ToLower()}";
 
-            string nl = $"{BaBaseUrl}{endpoint}";
+            string nl = $"{BaseUrl}{endpoint}";
 
-            return await GetResponse<Generic>(nl).ConfigureAwait(false);
+            return await GetResponse<Data.Generic>(nl).ConfigureAwait(false);
         }
 
         /// <summary>
         /// returns info about a random waifu
         /// </summary>
-        /// <returns>a random waifu and associated info</returns>
-        public async Task<Waifu> GetwaifuURl()
+        /// <returns>A random waifu and associated info.</returns>
+        public async Task<Data.Waifu> GetwaifuURl()
         {
             const string endpoint = $"/waifu";
 
-            string end = $"{BaBaseUrl}{endpoint}";
+            string end = $"{BaseUrl}{endpoint}";
 
-            return await GetResponse<Waifu>(end).ConfigureAwait(false);
+            return await GetResponse<Data.Waifu>(end).ConfigureAwait(false);
         }
 
         //==========================================|make requests|==========================================
         /// <summary>
-        ///     Send the request asynchronously (Dont use this method).
+        /// Sends a request asynchronously.
         /// </summary>
-        /// <param name="destination">Url to get.</param>
+        /// <param name="url">URL to get.</param>
         /// <typeparam name="T">Class to deserialize from JSON.</typeparam>
         /// <returns>JSON-deserialized class.</returns>
-        public static async Task<T> GetResponse<T>(string destination)
+        private async Task<T> GetResponse<T>(string url)
         {
-            using var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("Auth", key);
-            var req = new HttpRequestMessage(HttpMethod.Get, destination);
-            var res = await httpClient.SendAsync(req);
+            var response = await _httpClient.GetAsync(url).ConfigureAwait(false);
 
-            if (!res.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Request failed with status code {res.StatusCode}");
+                throw new Exception($"Request failed with status code {response.StatusCode}");
             }
 
-            var response = await res.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-            return JsonConvert.DeserializeObject<T>(response);
+            return JsonConvert.DeserializeObject<T>(content);
         }
     }
 }
