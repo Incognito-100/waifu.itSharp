@@ -10,8 +10,8 @@ namespace animuSharp.Client
     public class Client
     {
         private const string BaseUrl = "https://waifu.it/api";
-        private readonly HttpClient _httpClient;
-        private readonly string _apiKey;
+        private string Key;
+        private HttpClient httpClient = new HttpClient();
 
         /// <summary>
         ///  Create a new instance of the client
@@ -19,9 +19,8 @@ namespace animuSharp.Client
         /// <param name="apiKey">apiKey for making requests NOTE: it has a 5 requests/second rate-limit</param>
         public Client(string apiKey)
         {
-            _apiKey = apiKey;
-            // API requires use of a key, so add it to the headers
-            _httpClient.DefaultRequestHeaders.Add("Auth", _apiKey);
+            Key = apiKey;
+            httpClient.DefaultRequestHeaders.Add("Auth", Key);
         }
 
         /// <summary>
@@ -61,7 +60,7 @@ namespace animuSharp.Client
         /// <returns>JSON-deserialized class.</returns>
         private async Task<T> GetResponse<T>(string url)
         {
-            var response = await _httpClient.GetAsync(url).ConfigureAwait(false);
+            var response = await httpClient.GetAsync(url).ConfigureAwait(false);
 
             if (!response.IsSuccessStatusCode)
             {
