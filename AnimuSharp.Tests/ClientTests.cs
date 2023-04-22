@@ -10,7 +10,7 @@ namespace AnimuSharp.Tests
         {
         }
 
-        public const string apikey = "76a65670f12f6f6546b24c90335b88456ee5e864fce3";
+        public const string apikey = "";
 
         [Fact]
         public async Task GetURl_StateUnderTest_ExpectedBehavior()
