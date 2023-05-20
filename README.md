@@ -1,7 +1,7 @@
-# animuSharp
+# Waifu.itCSharp
 
-a c# APIi wrapper for https://docs.animu.ml/
+a c# APIi wrapper for Waifu.it
 
-docs: https://animu-sharp.gitbook.io/api-docs/
+docs: Waifu.it
 
 pacage:https://www.nuget.org/packages/animuSharp/
