@@ -7,18 +7,20 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>animuSharp</PackageId>
-    <Title>animuSharp The animu C# wrapper</Title>
-    <Version>1.0.7</Version>
+    <Title> animuSharpThe waifu.it C# wrapper</Title>
+    <Version>2.0.0</Version>
     <Authors>IVH</Authors>
     <Company>IVH</Company>
     <Product>animuSharp</Product>
-    <Description>a C# wrapper for animu</Description>
-    <PackageProjectUrl>https://github.com/Incognito-100/animuSharp</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Incognito-100/animuSharp</RepositoryUrl>
-    <PackageTags>animu,c#,wrapper</PackageTags>
-    <PackageReleaseNotes>added tests</PackageReleaseNotes>
-    <AssemblyVersion>1.0.0.7</AssemblyVersion>
-    <FileVersion>1.0.0.7</FileVersion>
+    <Description>a C# wrapper for waifu.it</Description>
+    <PackageProjectUrl>https://github.com/Incognito-100/waifu.itSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Incognito-100/waifu.itSharp</RepositoryUrl>
+    <PackageTags>waifu.it,c#,wrapper</PackageTags>
+    <PackageReleaseNotes>changed url to new  waifu.it (its just animu with a different name)
+removed waifu and data.cd and moved them into one file
+hid the GetResponse method from client class</PackageReleaseNotes>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
