@@ -14,7 +14,7 @@ namespace animuSharp.Client
         private HttpClient httpClient = new HttpClient();
 
         /// <summary>
-        ///  Create a new instance of the client
+        /// Initializes a new instance of the <see cref="Client"/> class.
         /// </summary>
         /// <param name="apiKey">apiKey for making requests NOTE: it has a 5 requests/second rate-limit</param>
         public Client(string apiKey)
@@ -31,7 +31,7 @@ namespace animuSharp.Client
         /// <exception cref="Exception"></exception>
         public async Task<Data.Generic> GetURl(ContentType content)
         {
-            var endpoint = $"/{content.ToString().ToLower()}";
+            string endpoint = $"/{content.ToString().ToLower()}";
 
             string nl = $"{BaseUrl}{endpoint}";
 
