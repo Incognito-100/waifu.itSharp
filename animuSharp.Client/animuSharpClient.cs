@@ -20,7 +20,7 @@ namespace animuSharp.Client
         public Client(string apiKey)
         {
             Key = apiKey;
-            httpClient.DefaultRequestHeaders.Add("Auth", Key);
+            httpClient.DefaultRequestHeaders.Add("Authorization", Key);
         }
 
         /// <summary>

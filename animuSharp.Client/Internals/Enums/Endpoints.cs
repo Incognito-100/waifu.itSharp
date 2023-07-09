@@ -321,11 +321,6 @@
         Wag,
 
         /// <summary>
-        /// Returns a single random waifu from the database
-        /// </summary>
-        waifu,
-
-        /// <summary>
         /// Returns a single random wave gif
         /// </summary>
         wave,

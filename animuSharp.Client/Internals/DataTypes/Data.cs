@@ -3,7 +3,7 @@
 namespace animuSharp.Client.Internals.DataTypes
 {
     /// <summary>
-    /// Get random waifus
+    /// Get Data
     /// </summary>
     public class Data
     {
@@ -122,7 +122,7 @@ namespace animuSharp.Client.Internals.DataTypes
         }
 
         /// <summary>
-        /// Get data from endpoints
+        /// Get data from Most endpoints
         /// </summary>
         public class Generic
         {
