@@ -1,6 +1,8 @@
 ﻿using animuSharp.Client.Internals.DataTypes;
 using animuSharp.Client.Internals.Enums;
 using Newtonsoft.Json;
+using System.Net.Mime;
+using ContentType = animuSharp.Client.Internals.Enums.ContentType;
 
 namespace animuSharp.Client
 {
@@ -29,26 +31,35 @@ namespace animuSharp.Client
         /// <param name="content">The type of content you want to get, select from <see cref="ContentType"/>.</param>
         /// <returns>A URL of the selected item.</returns>
         /// <exception cref="Exception"></exception>
-        public async Task<Data.Generic> GetURl(ContentType content)
+        public async Task<object> GetURl(ContentType content)
         {
             string endpoint = $"/{content.ToString().ToLower()}";
 
             string nl = $"{BaseUrl}{endpoint}";
 
-            return await GetResponse<Data.Generic>(nl).ConfigureAwait(false);
-        }
+            switch (content)
+            {
+                case ContentType.fact:
+                    return await GetResponse<Data.Fact>(nl).ConfigureAwait(false);
 
-        /// <summary>
-        /// returns info about a random waifu
-        /// </summary>
-        /// <returns>A random waifu and associated info.</returns>
-        public async Task<Data.Waifu> GetwaifuURl()
-        {
-            const string endpoint = $"/waifu";
+                case ContentType.Waifu:
+                    return await GetResponse<Data.Waifu>(nl).ConfigureAwait(false);
 
-            string end = $"{BaseUrl}{endpoint}";
+                case ContentType.password:
+                    return await GetResponse<Data.Password>(nl).ConfigureAwait(false);
 
-            return await GetResponse<Data.Waifu>(end).ConfigureAwait(false);
+                case ContentType.quote:
+                    return await GetResponse<Data.Quote>(nl).ConfigureAwait(false);
+
+                case ContentType.owoify:
+                    return await GetResponse<Data.Text>(nl).ConfigureAwait(false);
+
+                case ContentType.uwuify:
+                    return await GetResponse<Data.Text>(nl).ConfigureAwait(false);
+
+                default:
+                    return await GetResponse<Data.Generic>(nl).ConfigureAwait(false);
+            }
         }
 
         //==========================================|make requests|==========================================
