@@ -1,136 +1,216 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace animuSharp.Client.Internals.DataTypes
 {
     /// <summary>
-    /// Get Data
+    /// Data class containing various partial classes representing different data types.
     /// </summary>
     public class Data
     {
         /// <summary>
-        /// Get random waifus or husbandos
+        /// Partial class representing Text data type.
         /// </summary>
-        public class Waifu
+        public partial class Text
         {
             /// <summary>
-            /// the id of the request
+            /// Gets or sets the text value.
             /// </summary>
-            [JsonProperty("_id")]
-            public long Id { get; set; }
+            [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
+            public string TextText { get; set; }
+        }
+
+        /// <summary>
+        /// Partial class representing Quote data type.
+        /// </summary>
+        public partial class Quote
+        {
+            /// <summary>
+            /// Gets or sets the ID of the quote.
+            /// </summary>
+            [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+            public long? Id { get; set; }
 
             /// <summary>
-            /// the links of the images
+            /// Gets or sets the quote text.
             /// </summary>
-            [JsonProperty("images")]
+            [JsonProperty("quote", NullValueHandling = NullValueHandling.Ignore)]
+            public string QuoteQuote { get; set; }
+
+            /// <summary>
+            /// Gets or sets the anime associated with the quote.
+            /// </summary>
+            [JsonProperty("anime", NullValueHandling = NullValueHandling.Ignore)]
+            public string Anime { get; set; }
+
+            /// <summary>
+            /// Gets or sets the author of the quote.
+            /// </summary>
+            [JsonProperty("author", NullValueHandling = NullValueHandling.Ignore)]
+            public string Author { get; set; }
+        }
+
+        /// <summary>
+        /// Partial class representing Password data type.
+        /// </summary>
+        public partial class Password
+        {
+            /// <summary>
+            /// Gets or sets the password value.
+            /// </summary>
+            [JsonProperty("pass", NullValueHandling = NullValueHandling.Ignore)]
+            public string Pass { get; set; }
+        }
+
+        /// <summary>
+        /// Partial class representing Waifu data type.
+        /// </summary>
+        public partial class Waifu
+        {
+            /// <summary>
+            /// Gets or sets the ID of the waifu.
+            /// </summary>
+            [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+            public long? Id { get; set; }
+
+            /// <summary>
+            /// Gets or sets the list of images associated with the waifu.
+            /// </summary>
+            [JsonProperty("images", NullValueHandling = NullValueHandling.Ignore)]
             public List<Uri> Images { get; set; }
 
             /// <summary>
-            /// the names in english japaneese and alternative
+            /// Gets or sets the names of the waifu in different languages.
             /// </summary>
-            [JsonProperty("names")]
+            [JsonProperty("names", NullValueHandling = NullValueHandling.Ignore)]
             public Names Names { get; set; }
 
             /// <summary>
-            /// get info about the anime the character belongs to
+            /// Gets or sets the origin of the waifu.
             /// </summary>
-            [JsonProperty("from")]
+            [JsonProperty("from", NullValueHandling = NullValueHandling.Ignore)]
             public From From { get; set; }
 
             /// <summary>
-            /// statistics of the character
+            /// Gets or sets the statistics of the waifu.
             /// </summary>
-            [JsonProperty("statistics")]
+            [JsonProperty("statistics", NullValueHandling = NullValueHandling.Ignore)]
             public Statistics Statistics { get; set; }
         }
 
         /// <summary>
-        /// get info about the anime the character belongs to (only for waifu endpoint)
+        /// Partial class representing the origin of the waifu.
         /// </summary>
         public partial class From
         {
             /// <summary>
-            /// name of the anime the character belongs to
+            /// Gets or sets the name of the origin.
             /// </summary>
-            [JsonProperty("name")]
+            [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
             public string Name { get; set; }
 
             /// <summary>
-            /// the type of anime the character origenated from
+            /// Gets or sets the type of the origin.
             /// </summary>
-            [JsonProperty("type")]
+            [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
             public string Type { get; set; }
         }
 
         /// <summary>
-        /// the names in english japaneese and alternative
+        /// Partial class representing the names of the waifu in different languages.
         /// </summary>
         public partial class Names
         {
             /// <summary>
-            /// the characters name in english
+            /// Gets or sets the English name of the waifu.
             /// </summary>
-            [JsonProperty("en")]
+            [JsonProperty("en", NullValueHandling = NullValueHandling.Ignore)]
             public string En { get; set; }
 
             /// <summary>
-            /// the characters name in japaneese
+            /// Gets or sets the Japanese name of the waifu.
             /// </summary>
-            [JsonProperty("jp")]
+            [JsonProperty("jp", NullValueHandling = NullValueHandling.Ignore)]
             public string Jp { get; set; }
 
             /// <summary>
-            /// alternative name for the character
+            /// Gets or sets alternative names of the waifu.
             /// </summary>
             [JsonProperty("alt")]
             public object Alt { get; set; }
         }
 
         /// <summary>
-        /// statistics of the character
+        /// Partial class representing the statistics of the waifu.
         /// </summary>
         public partial class Statistics
         {
             /// <summary>
-            /// a number that represent the amount of people who favorited this character
+            /// Gets or sets the number of favorites for the waifu.
             /// </summary>
-            [JsonProperty("fav")]
-            public long Fav { get; set; }
+            [JsonProperty("fav", NullValueHandling = NullValueHandling.Ignore)]
+            public long? Fav { get; set; }
 
             /// <summary>
-            /// a number that represents the amount of people that loved this character
+            /// Gets or sets the number of loves for the waifu.
             /// </summary>
-            [JsonProperty("love")]
-            public long Love { get; set; }
+            [JsonProperty("love", NullValueHandling = NullValueHandling.Ignore)]
+            public long? Love { get; set; }
 
             /// <summary>
-            /// a number that represents the amount of people that hate this character
+            /// Gets or sets the number of hates for the waifu.
             /// </summary>
-            [JsonProperty("hate")]
-            public long Hate { get; set; }
+            [JsonProperty("hate", NullValueHandling = NullValueHandling.Ignore)]
+            public long? Hate { get; set; }
 
             /// <summary>
-            /// a number that represents the amount of upvotes this character has
+            /// Gets or sets the number of upvotes for the waifu.
             /// </summary>
-            [JsonProperty("upvote")]
-            public long Upvote { get; set; }
+            [JsonProperty("upvote", NullValueHandling = NullValueHandling.Ignore)]
+            public long? Upvote { get; set; }
 
             /// <summary>
-            /// a number that represents the amount of downvotes this character has
+            /// Gets or sets the number of downvotes for the waifu.
             /// </summary>
-            [JsonProperty("downvote")]
-            public long Downvote { get; set; }
+            [JsonProperty("downvote", NullValueHandling = NullValueHandling.Ignore)]
+            public long? Downvote { get; set; }
         }
 
         /// <summary>
-        /// Get data from Most endpoints
+        /// Partial class representing Fact data type.
         /// </summary>
-        public class Generic
+        public partial class Fact
         {
             /// <summary>
-            /// the url of the requested item
+            /// Gets or sets the ID of the fact.
             /// </summary>
-            [JsonProperty("url")]
-            public string Url { get; set; }
+            [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+            public long? Id { get; set; }
+
+            /// <summary>
+            /// Gets or sets the list of tags associated with the fact.
+            /// </summary>
+            [JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]
+            public List<object> Tags { get; set; }
+
+            /// <summary>
+            /// Gets or sets the fact text.
+            /// </summary>
+            [JsonProperty("fact", NullValueHandling = NullValueHandling.Ignore)]
+            public string FactFact { get; set; }
+        }
+
+        /// <summary>
+        /// Partial class representing Generic data type.
+        /// </summary>
+        public partial class Generic
+        {
+            /// <summary>
+            /// Gets or sets the URL value.
+            /// </summary>
+            [JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
+            public Uri Url { get; set; }
         }
     }
 }

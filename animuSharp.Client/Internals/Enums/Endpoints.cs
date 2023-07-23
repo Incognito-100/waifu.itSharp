@@ -190,6 +190,8 @@
         /// </summary>
         nope,
 
+        owoify,
+
         /// <summary>
         /// Returns a single random nuzzle gif
         /// </summary>
@@ -315,10 +317,15 @@
         /// </summary>
         triggered,
 
+        uvuify,
+        uwuify,
+
         /// <summary>
         /// Returns a single random Wag gif
         /// </summary>
         Wag,
+
+        Waifu,
 
         /// <summary>
         /// Returns a single random wave gif
