@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Xunit;
-using animuSharp.ClientClass;
+﻿using animuSharp.ClientClass;
 using animuSharp.ClientClass.Internals.Enums;
 using animuSharp.ClientClass.Internals.DataTypes;
 using System.Diagnostics;
@@ -41,7 +38,7 @@ namespace animuSharp.Tests
 
             // Assert
             Debug.WriteLine(item);
-            Assert.NotNull(item);
+            Assert.Equal("Hewwo world", item);
         }
 
         [Fact]
