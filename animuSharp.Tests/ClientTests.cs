@@ -9,7 +9,7 @@ namespace animuSharp.Tests
 {
     public class ClientTests
     {
-        private const string apikey = "";
+        private const string apikey = "2b5e4a39abf367d7992a49fea4ee9a70ec879f66e778";
 
         [Fact]
         public async Task GetGenericURl_StateUnderTest_ExpectedBehavior()
