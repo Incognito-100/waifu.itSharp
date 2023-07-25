@@ -1,9 +1,6 @@
 ﻿using animuSharp.ClientClass.Internals.DataTypes;
 using animuSharp.ClientClass.Internals.Enums;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Text;
-using ImageContentType = animuSharp.ClientClass.Internals.Enums.ImageContentType;
 
 namespace animuSharp.ClientClass
 {

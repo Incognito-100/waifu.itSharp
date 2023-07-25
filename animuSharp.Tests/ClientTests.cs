@@ -1,6 +1,6 @@
-﻿using animuSharp.ClientClass;
+﻿using animuSharp.ClientClass.Internals.DataTypes;
 using animuSharp.ClientClass.Internals.Enums;
-using animuSharp.ClientClass.Internals.DataTypes;
+using animuSharp.ClientClass;
 
 namespace animuSharp.Tests
 {
