@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace animuSharp.Client.Internals.DataTypes
+namespace animuSharp.ClientClass.Internals.DataTypes
 {
     /// <summary>
     /// Data class containing various partial classes representing different data types.
@@ -18,7 +16,7 @@ namespace animuSharp.Client.Internals.DataTypes
             /// Gets or sets the text value.
             /// </summary>
             [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
-            public string TextText { get; set; }
+            public string TText { get; set; }
         }
 
         /// <summary>
