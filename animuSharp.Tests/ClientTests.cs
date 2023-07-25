@@ -1,7 +1,9 @@
-﻿using animuSharp.ClientClass;
+﻿using Xunit;
+using animuSharp.ClientClass;
 using animuSharp.ClientClass.Internals.Enums;
 using animuSharp.ClientClass.Internals.DataTypes;
 using System.Diagnostics;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace animuSharp.Tests
 {
@@ -22,7 +24,7 @@ namespace animuSharp.Tests
 
             // Assert
             Debug.WriteLine(item);
-            Assert.NotNull(item);
+            Assert.IsNotNull(item);
         }
 
         [Fact]
@@ -38,7 +40,7 @@ namespace animuSharp.Tests
 
             // Assert
             Debug.WriteLine(item);
-            Assert.Equal("Hewwo world", item);
+            Assert.AreEqual("Hewwo world", item);
         }
 
         [Fact]
@@ -54,7 +56,7 @@ namespace animuSharp.Tests
 
             // Assert
             Debug.WriteLine(item);
-            Assert.NotNull(item);
+            Assert.IsNotNull(item);
         }
     }
 }
