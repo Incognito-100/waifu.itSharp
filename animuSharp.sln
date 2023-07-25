@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "animuSharp.Client", "animuSharp.Client\animuSharp.Client.csproj", "{604FE5C0-69DE-4827-B68D-8A80313782A9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "animuSharp.Tests", "animuSharp.Tests\animuSharp.Tests.csproj", "{D865B662-BDDB-45BE-9861-0A661BB84E28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{604FE5C0-69DE-4827-B68D-8A80313782A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{604FE5C0-69DE-4827-B68D-8A80313782A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{604FE5C0-69DE-4827-B68D-8A80313782A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D865B662-BDDB-45BE-9861-0A661BB84E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D865B662-BDDB-45BE-9861-0A661BB84E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D865B662-BDDB-45BE-9861-0A661BB84E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D865B662-BDDB-45BE-9861-0A661BB84E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
