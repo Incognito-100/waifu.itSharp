@@ -1,10 +1,11 @@
-﻿using animuSharp.Client.Internals.DataTypes;
-using animuSharp.Client.Internals.Enums;
+﻿using animuSharp.ClientClass.Internals.DataTypes;
+using animuSharp.ClientClass.Internals.Enums;
 using Newtonsoft.Json;
-using System.Net.Mime;
-using ContentType = animuSharp.Client.Internals.Enums.ContentType;
+using System.Net.Http;
+using System.Text;
+using ImageContentType = animuSharp.ClientClass.Internals.Enums.ImageContentType;
 
-namespace animuSharp.Client
+namespace animuSharp.ClientClass
 {
     /// <summary>
     /// main method for interacting with the api
@@ -28,38 +29,47 @@ namespace animuSharp.Client
         /// <summary>
         /// Gets a URL of the desired content.
         /// </summary>
-        /// <param name="content">The type of content you want to get, select from <see cref="ContentType"/>.</param>
+        /// <param name="content">The type of content you want to get, select from <see cref="ImageContentType"/>.</param>
         /// <returns>A URL of the selected item.</returns>
         /// <exception cref="Exception"></exception>
-        public async Task<object> GetURl(ContentType content)
+        public async Task<Data.Generic> GetGenericURl(ImageContentType content)
         {
             string endpoint = $"/{content.ToString().ToLower()}";
 
             string nl = $"{BaseUrl}{endpoint}";
 
-            switch (content)
-            {
-                case ContentType.fact:
-                    return await GetResponse<Data.Fact>(nl).ConfigureAwait(false);
+            return await GetResponse<Data.Generic>(nl).ConfigureAwait(false);
+        }
 
-                case ContentType.Waifu:
-                    return await GetResponse<Data.Waifu>(nl).ConfigureAwait(false);
+        /// <summary>
+        /// Gets a URL of the desired content.
+        /// </summary>
+        /// <param name="content">The type of content you want to get, select from <see cref="Textypes"/>.</param>
+        /// <param name="text"> the text you wannt to be used in the api call</param>
+        /// <returns>A URL of the selected item.</returns>
+        /// <exception cref="Exception"></exception>
+        public async Task<Data.Text> GetTextURl(Textypes content, string text)
+        {
+            string endpoint = $"/{content.ToString().ToLower()}";
 
-                case ContentType.password:
-                    return await GetResponse<Data.Password>(nl).ConfigureAwait(false);
+            string nl = $"{BaseUrl}{endpoint}";
 
-                case ContentType.quote:
-                    return await GetResponse<Data.Quote>(nl).ConfigureAwait(false);
+            return await GetResponse<Data.Text>($"{nl}?text={text}").ConfigureAwait(false);
+        }
 
-                case ContentType.owoify:
-                    return await GetResponse<Data.Text>(nl).ConfigureAwait(false);
+        /// <summary>
+        /// Gets a URL of the desired content.
+        /// </summary>
+        /// <param name="content">The type of content you want to get, select from <see cref="Misc"/>.</param>
+        /// <returns>A URL of the selected item.</returns>
+        /// <exception cref="Exception"></exception>
+        public async Task<T> GetMiscURl<T>(Misc content)
+        {
+            string endpoint = $"/{content.ToString().ToLower()}";
 
-                case ContentType.uwuify:
-                    return await GetResponse<Data.Text>(nl).ConfigureAwait(false);
+            string nl = $"{BaseUrl}{endpoint}";
 
-                default:
-                    return await GetResponse<Data.Generic>(nl).ConfigureAwait(false);
-            }
+            return await GetResponse<T>(nl).ConfigureAwait(false);
         }
 
         //==========================================|make requests|==========================================
