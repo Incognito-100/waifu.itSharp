@@ -1,9 +1,9 @@
-﻿namespace animuSharp.Client.Internals.Enums
+﻿namespace animuSharp.ClientClass.Internals.Enums
 {
     /// <summary>
     /// the type of content you want
     /// </summary>
-    public enum ContentType
+    public enum ImageContentType
     {
         /// <summary>
         /// Returns a single random angry gif
@@ -96,11 +96,6 @@
         facepalm,
 
         /// <summary>
-        /// Returns a single random fact gif
-        /// </summary>
-        fact,
-
-        /// <summary>
         /// Returns a single random feed gif
         /// </summary>
         feed,
@@ -190,8 +185,6 @@
         /// </summary>
         nope,
 
-        owoify,
-
         /// <summary>
         /// Returns a single random nuzzle gif
         /// </summary>
@@ -201,11 +194,6 @@
         /// Returns a single random panic gif
         /// </summary>
         panic,
-
-        /// <summary>
-        /// Generates a random password
-        /// </summary>
-        password,
 
         /// <summary>
         /// Returns a single random peck gif
@@ -226,11 +214,6 @@
         /// Returns a single random punch gif
         /// </summary>
         punch,
-
-        /// <summary>
-        /// Returns a single random anime quote
-        /// </summary>
-        quote,
 
         /// <summary>
         /// Returns a single random run gif
@@ -317,15 +300,10 @@
         /// </summary>
         triggered,
 
-        uvuify,
-        uwuify,
-
         /// <summary>
         /// Returns a single random Wag gif
         /// </summary>
         Wag,
-
-        Waifu,
 
         /// <summary>
         /// Returns a single random wave gif
@@ -341,5 +319,49 @@
         /// Returns a single random yes gif
         /// </summary>
         yes,
+    }
+
+    /// <summary>
+    /// Text contentypes
+    /// </summary>
+    public enum Textypes
+    {
+        /// <summary>
+        /// owoify text
+        /// </summary>
+        owoify,
+
+        /// <summary>
+        /// uvuify text
+        /// </summary>
+        uvuify,
+
+        /// <summary>
+        /// uwuify text
+        /// </summary>
+        uwuify,
+    }
+
+    /// <summary>
+    /// misalaniose endpoints
+    /// </summary>
+    public enum Misc
+    {
+        /// <summary>
+        /// Returns a single random fact gif
+        /// </summary>
+        fact,
+
+        /// <summary>
+        /// Generates a random password
+        /// </summary>
+        password,
+
+        /// <summary>
+        /// Returns a single random anime quote
+        /// </summary>
+        quote,
+
+        Waifu,
     }
 }
