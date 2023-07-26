@@ -3,5 +3,6 @@
 a c# APIi wrapper for Waifu.it
 
 docs: [Waifu.it](https://waifu.it/)
+[Gitbook](https://animu-sharp.gitbook.io/api-docs/)
 
-pacage:https://www.nuget.org/packages/animuSharp/
+package:https://www.nuget.org/packages/animuSharp/
