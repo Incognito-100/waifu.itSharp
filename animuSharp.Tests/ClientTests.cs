@@ -30,7 +30,7 @@ namespace animuSharp.Tests
             Client client = new Client(apikey);
 
             // Act
-            var result = await client.GetTextURl(Textypes.owoify, "Hello world");
+            var result = await client.GetTextURl("Hello world", Textypes.owoify);
 
             var item = result.TText;
 
@@ -47,7 +47,7 @@ namespace animuSharp.Tests
             // Act
             var result = await client.GetMiscURl<Data.Waifu>(Misc.Waifu);
 
-            var item = result.Names;
+            var item = result.Names.En;
 
             // Assert
             Assert.NotNull(item);

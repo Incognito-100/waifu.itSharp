@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>animuSharp</PackageId>
     <Title> animuSharpThe waifu.it C# wrapper</Title>
-    <Version>2.0.0</Version>
+    <Version>2.1.1</Version>
     <Authors>IVH</Authors>
     <Company>IVH</Company>
     <Product>animuSharp</Product>
@@ -16,11 +16,14 @@
     <PackageProjectUrl>https://github.com/Incognito-100/waifu.itSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Incognito-100/waifu.itSharp</RepositoryUrl>
     <PackageTags>waifu.it,c#,wrapper</PackageTags>
-    <PackageReleaseNotes>changed url to new  waifu.it (its just animu with a different name)
-removed waifu and data.cd and moved them into one file
-hid the GetResponse method from client class</PackageReleaseNotes>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.0</FileVersion>
+    <PackageReleaseNotes>added a new endpoint(pat)
+and updated the testing SDK</PackageReleaseNotes>
+    <AssemblyVersion>2.1.1</AssemblyVersion>
+    <FileVersion>2.1.1</FileVersion>
+    <Copyright>2023 - IVH</Copyright>
+    <SignAssembly>False</SignAssembly>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -30,6 +33,13 @@ hid the GetResponse method from client class</PackageReleaseNotes>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>embedded</DebugType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

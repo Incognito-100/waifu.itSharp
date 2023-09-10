@@ -195,6 +195,11 @@
         /// </summary>
         panic,
 
+        ///<summary>
+        /// Returns a single random pat gif
+        /// </summary>
+        Pat,
+
         /// <summary>
         /// Returns a single random peck gif
         /// </summary>
@@ -362,6 +367,9 @@
         /// </summary>
         quote,
 
-        Waifu,
+        /// <summary>
+        /// get a waifu and its info
+        /// </summary>
+        Waifu
     }
 }

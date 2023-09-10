@@ -45,13 +45,14 @@ namespace animuSharp.ClientClass
         /// <param name="text"> the text you wannt to be used in the api call</param>
         /// <returns>A URL of the selected item.</returns>
         /// <exception cref="Exception"></exception>
-        public async Task<Data.Text> GetTextURl(Textypes content, string text)
+        public async Task<Data.Text> GetTextURl(string text, Textypes content)
         {
             string endpoint = $"/{content.ToString().ToLower()}";
 
             string nl = $"{BaseUrl}{endpoint}";
+            string recont = $"{nl}?text={text}";
 
-            return await GetResponse<Data.Text>($"{nl}?text={text}").ConfigureAwait(false);
+            return await GetResponse<Data.Text>(recont).ConfigureAwait(false);
         }
 
         /// <summary>
