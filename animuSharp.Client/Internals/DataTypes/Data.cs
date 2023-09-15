@@ -16,7 +16,7 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             /// Gets or sets the text value.
             /// </summary>
             [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
-            public string TText { get; set; }
+            public string? TText { get; set; }
         }
 
         /// <summary>
@@ -34,19 +34,19 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             /// Gets or sets the quote text.
             /// </summary>
             [JsonProperty("quote", NullValueHandling = NullValueHandling.Ignore)]
-            public string QuoteQuote { get; set; }
+            public string? QuoteQuote { get; set; }
 
             /// <summary>
             /// Gets or sets the anime associated with the quote.
             /// </summary>
             [JsonProperty("anime", NullValueHandling = NullValueHandling.Ignore)]
-            public string Anime { get; set; }
+            public string? Anime { get; set; }
 
             /// <summary>
             /// Gets or sets the author of the quote.
             /// </summary>
             [JsonProperty("author", NullValueHandling = NullValueHandling.Ignore)]
-            public string Author { get; set; }
+            public string? Author { get; set; }
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             /// Gets or sets the password value.
             /// </summary>
             [JsonProperty("pass", NullValueHandling = NullValueHandling.Ignore)]
-            public string Pass { get; set; }
+            public string? Pass { get; set; }
         }
 
         /// <summary>
@@ -76,25 +76,25 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             /// Gets or sets the list of images associated with the waifu.
             /// </summary>
             [JsonProperty("images", NullValueHandling = NullValueHandling.Ignore)]
-            public List<Uri> Images { get; set; }
+            public List<Uri>? Images { get; set; }
 
             /// <summary>
             /// Gets or sets the names of the waifu in different languages.
             /// </summary>
             [JsonProperty("names", NullValueHandling = NullValueHandling.Ignore)]
-            public Names Names { get; set; }
+            public Names? Names { get; set; }
 
             /// <summary>
             /// Gets or sets the origin of the waifu.
             /// </summary>
             [JsonProperty("from", NullValueHandling = NullValueHandling.Ignore)]
-            public From From { get; set; }
+            public From? From { get; set; }
 
             /// <summary>
             /// Gets or sets the statistics of the waifu.
             /// </summary>
             [JsonProperty("statistics", NullValueHandling = NullValueHandling.Ignore)]
-            public Statistics Statistics { get; set; }
+            public Statistics? Statistics { get; set; }
         }
 
         /// <summary>
@@ -106,13 +106,13 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             /// Gets or sets the name of the origin.
             /// </summary>
             [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             /// <summary>
             /// Gets or sets the type of the origin.
             /// </summary>
             [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-            public string Type { get; set; }
+            public string? Type { get; set; }
         }
 
         /// <summary>
@@ -124,19 +124,19 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             /// Gets or sets the English name of the waifu.
             /// </summary>
             [JsonProperty("en", NullValueHandling = NullValueHandling.Ignore)]
-            public string En { get; set; }
+            public string? En { get; set; }
 
             /// <summary>
             /// Gets or sets the Japanese name of the waifu.
             /// </summary>
             [JsonProperty("jp", NullValueHandling = NullValueHandling.Ignore)]
-            public string Jp { get; set; }
+            public string? Jp { get; set; }
 
             /// <summary>
             /// Gets or sets alternative names of the waifu.
             /// </summary>
             [JsonProperty("alt")]
-            public object Alt { get; set; }
+            public object? Alt { get; set; }
         }
 
         /// <summary>
@@ -190,13 +190,13 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             /// Gets or sets the list of tags associated with the fact.
             /// </summary>
             [JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]
-            public List<object> Tags { get; set; }
+            public List<object>? Tags { get; set; }
 
             /// <summary>
             /// Gets or sets the fact text.
             /// </summary>
             [JsonProperty("fact", NullValueHandling = NullValueHandling.Ignore)]
-            public string FactFact { get; set; }
+            public string? FactFact { get; set; }
         }
 
         /// <summary>
@@ -208,7 +208,7 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             /// Gets or sets the URL value.
             /// </summary>
             [JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
-            public Uri Url { get; set; }
+            public Uri? Url { get; set; }
         }
     }
 }
