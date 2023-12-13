@@ -26,14 +26,14 @@ Install Waifu.itCSharp with nugget
 
 ## Documentation
 
-[Documentation](https://animu-sharp.gitbook.io/api-docs/)
+[Documentation](https://ivh.gitbook.io/animu-sharp/)
 
 
 ## FAQ
 
 #### Dose it need an API key?
 
-Yes, You can generate an API key from the animu [discord](https://discord.gg/yyW389c) and then doing -claim in #bot-commands 
+Yes, You can generate an API key from the animu [discord](https://discord.gg/yyW389c) and then do -claim in #bot-commands 
 
 
 
