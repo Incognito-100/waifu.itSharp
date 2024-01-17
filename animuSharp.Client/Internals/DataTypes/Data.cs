@@ -1,10 +1,71 @@
 ﻿using Newtonsoft.Json;
+using static animuSharp.ClientClass.Internals.DataTypes.Data;
 
 namespace animuSharp.ClientClass.Internals.DataTypes
 {
+    namespace ExposedTypes
+    {
+        public class Data
+        {
+            public class Generic
+            {
+                [JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri? Url { get; set; }
+            }
+
+            public class Waifu
+            {
+                [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Id { get; set; }
+
+                [JsonProperty("images", NullValueHandling = NullValueHandling.Ignore)]
+                public List<Uri>? Images { get; set; }
+
+                [JsonProperty("names", NullValueHandling = NullValueHandling.Ignore)]
+                public Names? Names { get; set; }
+
+                [JsonProperty("from", NullValueHandling = NullValueHandling.Ignore)]
+                public From? From { get; set; }
+
+                [JsonProperty("statistics", NullValueHandling = NullValueHandling.Ignore)]
+                public Statistics? Statistics { get; set; }
+            }
+
+            public class Quote
+            {
+                [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Id { get; set; }
+
+                [JsonProperty("quote", NullValueHandling = NullValueHandling.Ignore)]
+                public string? QuoteQuote { get; set; }
+
+                [JsonProperty("anime", NullValueHandling = NullValueHandling.Ignore)]
+                public string? Anime { get; set; }
+
+                [JsonProperty("author", NullValueHandling = NullValueHandling.Ignore)]
+                public string? Author { get; set; }
+            }
+
+            public class Fact
+            {
+                [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Id { get; set; }
+
+                [JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]
+                public List<object>? Tags { get; set; }
+
+                [JsonProperty("fact", NullValueHandling = NullValueHandling.Ignore)]
+                public string? FactFact { get; set; }
+            }
+        }
+    }
+
     /// <summary>
     /// Data class containing various partial classes representing different data types.
     /// </summary>
+
+    #region Data
+
     public class Data
     {
         /// <summary>
@@ -211,4 +272,6 @@ namespace animuSharp.ClientClass.Internals.DataTypes
             public Uri? Url { get; set; }
         }
     }
+
+    #endregion Data
 }
