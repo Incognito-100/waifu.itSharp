@@ -1,4 +1,4 @@
-﻿using animuSharp.ClientClass.Internals.DataTypes;
+﻿using animuSharp.ClientClass.Internals.DataTypes.ExposedTypes;
 using animuSharp.ClientClass.Internals.Enums;
 using animuSharp.ClientClass;
 
@@ -15,7 +15,7 @@ namespace animuSharp.Tests
             Client client = new Client(apikey);
 
             // Act
-            var result = await client.GetGenericURl(ImageContentType.angry);
+            var result = await client.GetURl(ImageContentType.angry);
 
             var item = result.Url;
 
@@ -30,7 +30,7 @@ namespace animuSharp.Tests
             Client client = new Client(apikey);
 
             // Act
-            var result = await client.GetTextURl("Hello world", Textypes.owoify);
+            var result = await client.GetURl("Hello world", Textypes.owoify);
 
             var item = result.TText;
 
@@ -45,7 +45,7 @@ namespace animuSharp.Tests
             Client client = new Client(apikey);
 
             // Act
-            var result = await client.GetMiscURl<Data.Waifu>(Misc.Waifu);
+            var result = await client.GetURl<Data.Waifu>(Misc.Waifu);
 
             var item = result.Names.En;
 
