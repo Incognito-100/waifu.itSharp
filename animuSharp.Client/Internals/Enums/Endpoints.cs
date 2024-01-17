@@ -368,6 +368,11 @@
         quote,
 
         /// <summary>
+        /// Get a list of available tags that can be used for specific queries in certain endpoints
+        /// </summary>
+        Tags,
+
+        /// <summary>
         /// get a waifu and its info
         /// </summary>
         Waifu
