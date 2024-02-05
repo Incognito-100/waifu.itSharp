@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using static animuSharp.ClientClass.Internals.DataTypes.Data;
+using static animuSharp.ClientClass.Internals.DataTypes.Data.husbandodata;
 
 namespace animuSharp.ClientClass.Internals.DataTypes
 {
@@ -18,17 +19,71 @@ namespace animuSharp.ClientClass.Internals.DataTypes
                 [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
                 public long? Id { get; set; }
 
-                [JsonProperty("images", NullValueHandling = NullValueHandling.Ignore)]
-                public List<Uri>? Images { get; set; }
+                [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+                public Name Name { get; set; }
 
-                [JsonProperty("names", NullValueHandling = NullValueHandling.Ignore)]
-                public Names? Names { get; set; }
+                [JsonProperty("image", NullValueHandling = NullValueHandling.Ignore)]
+                public Image Image { get; set; }
 
-                [JsonProperty("from", NullValueHandling = NullValueHandling.Ignore)]
-                public From? From { get; set; }
+                [JsonProperty("favourites", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Favourites { get; set; }
 
-                [JsonProperty("statistics", NullValueHandling = NullValueHandling.Ignore)]
-                public Statistics? Statistics { get; set; }
+                [JsonProperty("siteUrl", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri SiteUrl { get; set; }
+
+                [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+                public string Description { get; set; }
+
+                [JsonProperty("age")]
+                public dynamic Age { get; set; }
+
+                [JsonProperty("gender", NullValueHandling = NullValueHandling.Ignore)]
+                public string Gender { get; set; }
+
+                [JsonProperty("bloodType")]
+                public dynamic BloodType { get; set; }
+
+                [JsonProperty("dateOfBirth", NullValueHandling = NullValueHandling.Ignore)]
+                public DateOfBirth DateOfBirth { get; set; }
+
+                [JsonProperty("media", NullValueHandling = NullValueHandling.Ignore)]
+                public Media Media { get; set; }
+            }
+
+            public class Husbando
+            {
+                [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Id { get; set; }
+
+                [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+                public Name Name { get; set; }
+
+                [JsonProperty("image", NullValueHandling = NullValueHandling.Ignore)]
+                public Image Image { get; set; }
+
+                [JsonProperty("favourites", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Favourites { get; set; }
+
+                [JsonProperty("siteUrl", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri SiteUrl { get; set; }
+
+                [JsonProperty("description")]
+                public dynamic Description { get; set; }
+
+                [JsonProperty("age")]
+                public dynamic Age { get; set; }
+
+                [JsonProperty("gender", NullValueHandling = NullValueHandling.Ignore)]
+                public string Gender { get; set; }
+
+                [JsonProperty("bloodType")]
+                public dynamic BloodType { get; set; }
+
+                [JsonProperty("dateOfBirth", NullValueHandling = NullValueHandling.Ignore)]
+                public DateOfBirth DateOfBirth { get; set; }
+
+                [JsonProperty("media", NullValueHandling = NullValueHandling.Ignore)]
+                public Media Media { get; set; }
             }
 
             public class Quote
@@ -125,115 +180,286 @@ namespace animuSharp.ClientClass.Internals.DataTypes
         /// <summary>
         /// Partial class representing Waifu data type.
         /// </summary>
-        public partial class Waifu
+        public partial class waifudata
         {
-            /// <summary>
-            /// Gets or sets the ID of the waifu.
-            /// </summary>
-            [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
-            public long? Id { get; set; }
+            public partial class Waifu
+            {
+                [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Id { get; set; }
 
-            /// <summary>
-            /// Gets or sets the list of images associated with the waifu.
-            /// </summary>
-            [JsonProperty("images", NullValueHandling = NullValueHandling.Ignore)]
-            public List<Uri>? Images { get; set; }
+                [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+                public Name Name { get; set; }
 
-            /// <summary>
-            /// Gets or sets the names of the waifu in different languages.
-            /// </summary>
-            [JsonProperty("names", NullValueHandling = NullValueHandling.Ignore)]
-            public Names? Names { get; set; }
+                [JsonProperty("image", NullValueHandling = NullValueHandling.Ignore)]
+                public Image Image { get; set; }
 
-            /// <summary>
-            /// Gets or sets the origin of the waifu.
-            /// </summary>
-            [JsonProperty("from", NullValueHandling = NullValueHandling.Ignore)]
-            public From? From { get; set; }
+                [JsonProperty("favourites", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Favourites { get; set; }
 
-            /// <summary>
-            /// Gets or sets the statistics of the waifu.
-            /// </summary>
-            [JsonProperty("statistics", NullValueHandling = NullValueHandling.Ignore)]
-            public Statistics? Statistics { get; set; }
+                [JsonProperty("siteUrl", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri SiteUrl { get; set; }
+
+                [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+                public string Description { get; set; }
+
+                [JsonProperty("age")]
+                public dynamic Age { get; set; }
+
+                [JsonProperty("gender", NullValueHandling = NullValueHandling.Ignore)]
+                public string Gender { get; set; }
+
+                [JsonProperty("bloodType")]
+                public dynamic BloodType { get; set; }
+
+                [JsonProperty("dateOfBirth", NullValueHandling = NullValueHandling.Ignore)]
+                public DateOfBirth DateOfBirth { get; set; }
+
+                [JsonProperty("media", NullValueHandling = NullValueHandling.Ignore)]
+                public Media Media { get; set; }
+            }
+
+            public partial class DateOfBirth
+            {
+                [JsonProperty("year")]
+                public dynamic Year { get; set; }
+
+                [JsonProperty("month")]
+                public dynamic Month { get; set; }
+
+                [JsonProperty("day")]
+                public dynamic Day { get; set; }
+            }
+
+            public partial class Image
+            {
+                [JsonProperty("large", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri Large { get; set; }
+            }
+
+            public partial class Media
+            {
+                [JsonProperty("nodes", NullValueHandling = NullValueHandling.Ignore)]
+                public List<Node> Nodes { get; set; }
+            }
+
+            public partial class Node
+            {
+                [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Id { get; set; }
+
+                [JsonProperty("idMal", NullValueHandling = NullValueHandling.Ignore)]
+                public long? IdMal { get; set; }
+
+                [JsonProperty("coverImage", NullValueHandling = NullValueHandling.Ignore)]
+                public CoverImage CoverImage { get; set; }
+
+                [JsonProperty("bannerImage")]
+                public dynamic BannerImage { get; set; }
+
+                [JsonProperty("title", NullValueHandling = NullValueHandling.Ignore)]
+                public Title Title { get; set; }
+
+                [JsonProperty("synonyms", NullValueHandling = NullValueHandling.Ignore)]
+                public List<string> Synonyms { get; set; }
+
+                [JsonProperty("popularity", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Popularity { get; set; }
+
+                [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+                public string Type { get; set; }
+
+                [JsonProperty("format", NullValueHandling = NullValueHandling.Ignore)]
+                public string Format { get; set; }
+            }
+
+            public partial class CoverImage
+            {
+                [JsonProperty("medium", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri Medium { get; set; }
+            }
+
+            public partial class Title
+            {
+                [JsonProperty("romaji", NullValueHandling = NullValueHandling.Ignore)]
+                public string Romaji { get; set; }
+
+                [JsonProperty("english", NullValueHandling = NullValueHandling.Ignore)]
+                public string English { get; set; }
+
+                [JsonProperty("native", NullValueHandling = NullValueHandling.Ignore)]
+                public string Native { get; set; }
+
+                [JsonProperty("userPreferred", NullValueHandling = NullValueHandling.Ignore)]
+                public string UserPreferred { get; set; }
+            }
+
+            public partial class Name
+            {
+                [JsonProperty("first", NullValueHandling = NullValueHandling.Ignore)]
+                public string First { get; set; }
+
+                [JsonProperty("middle")]
+                public dynamic Middle { get; set; }
+
+                [JsonProperty("last")]
+                public dynamic Last { get; set; }
+
+                [JsonProperty("full", NullValueHandling = NullValueHandling.Ignore)]
+                public string Full { get; set; }
+
+                [JsonProperty("native", NullValueHandling = NullValueHandling.Ignore)]
+                public string Native { get; set; }
+
+                [JsonProperty("userPreferred", NullValueHandling = NullValueHandling.Ignore)]
+                public string UserPreferred { get; set; }
+
+                [JsonProperty("alternative", NullValueHandling = NullValueHandling.Ignore)]
+                public List<dynamic> Alternative { get; set; }
+
+                [JsonProperty("alternativeSpoiler", NullValueHandling = NullValueHandling.Ignore)]
+                public List<dynamic> AlternativeSpoiler { get; set; }
+            }
         }
 
-        /// <summary>
-        /// Partial class representing the origin of the waifu.
-        /// </summary>
-        public partial class From
+        public class husbandodata
         {
-            /// <summary>
-            /// Gets or sets the name of the origin.
-            /// </summary>
-            [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-            public string? Name { get; set; }
+            public partial class Husbando
+            {
+                [JsonProperty("_id", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Id { get; set; }
 
-            /// <summary>
-            /// Gets or sets the type of the origin.
-            /// </summary>
-            [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-            public string? Type { get; set; }
-        }
+                [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+                public Name Name { get; set; }
 
-        /// <summary>
-        /// Partial class representing the names of the waifu in different languages.
-        /// </summary>
-        public partial class Names
-        {
-            /// <summary>
-            /// Gets or sets the English name of the waifu.
-            /// </summary>
-            [JsonProperty("en", NullValueHandling = NullValueHandling.Ignore)]
-            public string? En { get; set; }
+                [JsonProperty("image", NullValueHandling = NullValueHandling.Ignore)]
+                public Image Image { get; set; }
 
-            /// <summary>
-            /// Gets or sets the Japanese name of the waifu.
-            /// </summary>
-            [JsonProperty("jp", NullValueHandling = NullValueHandling.Ignore)]
-            public string? Jp { get; set; }
+                [JsonProperty("favourites", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Favourites { get; set; }
 
-            /// <summary>
-            /// Gets or sets alternative names of the waifu.
-            /// </summary>
-            [JsonProperty("alt")]
-            public object? Alt { get; set; }
-        }
+                [JsonProperty("siteUrl", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri SiteUrl { get; set; }
 
-        /// <summary>
-        /// Partial class representing the statistics of the waifu.
-        /// </summary>
-        public partial class Statistics
-        {
-            /// <summary>
-            /// Gets or sets the number of favorites for the waifu.
-            /// </summary>
-            [JsonProperty("fav", NullValueHandling = NullValueHandling.Ignore)]
-            public long? Fav { get; set; }
+                [JsonProperty("description")]
+                public dynamic Description { get; set; }
 
-            /// <summary>
-            /// Gets or sets the number of loves for the waifu.
-            /// </summary>
-            [JsonProperty("love", NullValueHandling = NullValueHandling.Ignore)]
-            public long? Love { get; set; }
+                [JsonProperty("age")]
+                public dynamic Age { get; set; }
 
-            /// <summary>
-            /// Gets or sets the number of hates for the waifu.
-            /// </summary>
-            [JsonProperty("hate", NullValueHandling = NullValueHandling.Ignore)]
-            public long? Hate { get; set; }
+                [JsonProperty("gender", NullValueHandling = NullValueHandling.Ignore)]
+                public string Gender { get; set; }
 
-            /// <summary>
-            /// Gets or sets the number of upvotes for the waifu.
-            /// </summary>
-            [JsonProperty("upvote", NullValueHandling = NullValueHandling.Ignore)]
-            public long? Upvote { get; set; }
+                [JsonProperty("bloodType")]
+                public dynamic BloodType { get; set; }
 
-            /// <summary>
-            /// Gets or sets the number of downvotes for the waifu.
-            /// </summary>
-            [JsonProperty("downvote", NullValueHandling = NullValueHandling.Ignore)]
-            public long? Downvote { get; set; }
+                [JsonProperty("dateOfBirth", NullValueHandling = NullValueHandling.Ignore)]
+                public DateOfBirth DateOfBirth { get; set; }
+
+                [JsonProperty("media", NullValueHandling = NullValueHandling.Ignore)]
+                public Media Media { get; set; }
+            }
+
+            public partial class DateOfBirth
+            {
+                [JsonProperty("year")]
+                public dynamic Year { get; set; }
+
+                [JsonProperty("month", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Month { get; set; }
+
+                [JsonProperty("day", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Day { get; set; }
+            }
+
+            public partial class Image
+            {
+                [JsonProperty("large", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri Large { get; set; }
+            }
+
+            public partial class Media
+            {
+                [JsonProperty("nodes", NullValueHandling = NullValueHandling.Ignore)]
+                public List<Node> Nodes { get; set; }
+            }
+
+            public partial class Node
+            {
+                [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Id { get; set; }
+
+                [JsonProperty("idMal", NullValueHandling = NullValueHandling.Ignore)]
+                public long? IdMal { get; set; }
+
+                [JsonProperty("coverImage", NullValueHandling = NullValueHandling.Ignore)]
+                public CoverImage CoverImage { get; set; }
+
+                [JsonProperty("bannerImage", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri BannerImage { get; set; }
+
+                [JsonProperty("title", NullValueHandling = NullValueHandling.Ignore)]
+                public Title Title { get; set; }
+
+                [JsonProperty("synonyms", NullValueHandling = NullValueHandling.Ignore)]
+                public List<string> Synonyms { get; set; }
+
+                [JsonProperty("popularity", NullValueHandling = NullValueHandling.Ignore)]
+                public long? Popularity { get; set; }
+
+                [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+                public string Type { get; set; }
+
+                [JsonProperty("format", NullValueHandling = NullValueHandling.Ignore)]
+                public string Format { get; set; }
+            }
+
+            public partial class CoverImage
+            {
+                [JsonProperty("medium", NullValueHandling = NullValueHandling.Ignore)]
+                public Uri Medium { get; set; }
+            }
+
+            public partial class Title
+            {
+                [JsonProperty("romaji", NullValueHandling = NullValueHandling.Ignore)]
+                public string Romaji { get; set; }
+
+                [JsonProperty("english", NullValueHandling = NullValueHandling.Ignore)]
+                public string English { get; set; }
+
+                [JsonProperty("native", NullValueHandling = NullValueHandling.Ignore)]
+                public string Native { get; set; }
+
+                [JsonProperty("userPreferred", NullValueHandling = NullValueHandling.Ignore)]
+                public string UserPreferred { get; set; }
+            }
+
+            public partial class Name
+            {
+                [JsonProperty("first", NullValueHandling = NullValueHandling.Ignore)]
+                public string First { get; set; }
+
+                [JsonProperty("middle")]
+                public dynamic Middle { get; set; }
+
+                [JsonProperty("last", NullValueHandling = NullValueHandling.Ignore)]
+                public string Last { get; set; }
+
+                [JsonProperty("full", NullValueHandling = NullValueHandling.Ignore)]
+                public string Full { get; set; }
+
+                [JsonProperty("native", NullValueHandling = NullValueHandling.Ignore)]
+                public string Native { get; set; }
+
+                [JsonProperty("userPreferred", NullValueHandling = NullValueHandling.Ignore)]
+                public string UserPreferred { get; set; }
+
+                [JsonProperty("alternative", NullValueHandling = NullValueHandling.Ignore)]
+                public List<dynamic> Alternative { get; set; }
+
+                [JsonProperty("alternativeSpoiler", NullValueHandling = NullValueHandling.Ignore)]
+                public List<dynamic> AlternativeSpoiler { get; set; }
+            }
         }
 
         /// <summary>
