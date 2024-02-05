@@ -12,7 +12,7 @@ namespace animuSharp.Tests
         public async Task GetGenericURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new Client(apikey);
+            Client client = new(apikey);
 
             // Act
             var result = await client.GetURl(ImageContentType.angry);
@@ -27,7 +27,7 @@ namespace animuSharp.Tests
         public async Task GetTextURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new Client(apikey);
+            Client client = new(apikey);
 
             // Act
             var result = await client.GetURl("Hello world", Textypes.owoify);
@@ -42,15 +42,45 @@ namespace animuSharp.Tests
         public async Task GetMiscURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new Client(apikey);
+            Client client = new(apikey);
 
             // Act
             var result = await client.GetURl<Data.Waifu>(Misc.Waifu);
 
-            var item = result.Names.En;
+            var item = result.Gender;
 
             // Assert
-            Assert.NotNull(item);
+            Assert.Equal("Female", item);
+        }
+
+        [Fact]
+        public async Task GetWaifuName_StateUnderTest_ExpectedBehavior()
+        {
+            // Arrange
+            Client client = new(apikey);
+
+            // Act
+            var result = await client.GetURl<Data.Waifu>(Misc.Waifu, "Kokomi Teruhashi");
+
+            var item = result.Name.Full;
+
+            // Assert
+            Assert.Equal("Kokomi Teruhashi", item);
+        }
+
+        [Fact]
+        public async Task Gethusbando_StateUnderTest_ExpectedBehavior()
+        {
+            // Arrange
+            Client client = new(apikey);
+
+            // Act
+            var result = await client.GetURl<Data.Husbando>(Misc.husbando);
+
+            var item = result.Gender;
+
+            // Assert
+            Assert.Equal("Male", item);
         }
     }
 }
