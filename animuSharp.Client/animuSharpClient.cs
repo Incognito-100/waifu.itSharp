@@ -2,6 +2,7 @@
 using animuSharp.ClientClass.Internals.Enums;
 using Newtonsoft.Json;
 using System.Net;
+using System.Web;
 
 namespace animuSharp.ClientClass
 {
@@ -12,7 +13,7 @@ namespace animuSharp.ClientClass
     {
         private const string BaseUrl = "https://waifu.it/api/v4";
         private readonly string Key;
-        private static readonly HttpClient httpClient = new HttpClient();
+        private static HttpClient httpClient = new HttpClient();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Client"/> class.
@@ -21,7 +22,6 @@ namespace animuSharp.ClientClass
         public Client(string apiKey)
         {
             Key = apiKey;
-            httpClient.DefaultRequestHeaders.Add("Authorization", Key);
         }
 
         /// <summary>
@@ -51,7 +51,10 @@ namespace animuSharp.ClientClass
             string endpoint = $"/{content.ToString().ToLower()}";
 
             string nl = $"{BaseUrl}{endpoint}";
-            string recont = $"{nl}?text={text}";
+
+            string encodedText = Uri.EscapeDataString(text);
+
+            string recont = $"{nl}?text={encodedText}";
 
             return await GetResponse<Data.Text>(recont).ConfigureAwait(false);
         }
@@ -62,13 +65,51 @@ namespace animuSharp.ClientClass
         /// <param name="content">The type of content you want to get, select from <see cref="Misc"/>.</param>
         /// <returns>A URL of the selected item.</returns>
         /// <exception cref="Exception"></exception>
-        public async Task<T> GetURl<T>(Misc content)
+        public async Task<T> GetURl<T>(Misc content, string name = null, string anime = null)
         {
-            string endpoint = $"/{content.ToString().ToLower()}";
+            if (content == Misc.Waifu || content == Misc.husbando)
+            {
+                if (name != null && anime == null)
+                {
+                    string eee = $"/{content.ToString().ToLower()}?anime={HttpUtility.UrlEncode(anime)}";
 
-            string nl = $"{BaseUrl}{endpoint}";
+                    string ee = $"{BaseUrl}{eee}";
 
-            return await GetResponse<T>(nl).ConfigureAwait(false);
+                    return await GetResponse<T>(ee).ConfigureAwait(false);
+                }
+                else if (anime != null && name == null)
+                {
+                    string eee = $"/{content.ToString().ToLower()}?name={HttpUtility.UrlEncode(name)}";
+
+                    string ee = $"{BaseUrl}{eee}";
+
+                    return await GetResponse<T>(ee).ConfigureAwait(false);
+                }
+                else if (name != null && anime != null)
+                {
+                    string eee = $"/{content.ToString().ToLower()}?anime={HttpUtility.UrlEncode(anime)}&name={HttpUtility.UrlEncode(name)}";
+
+                    string ee = $"{BaseUrl}{eee}";
+
+                    return await GetResponse<T>(ee).ConfigureAwait(false);
+                }
+                else
+                {
+                    string eee = $"/{content.ToString().ToLower()}";
+
+                    string ee = $"{BaseUrl}{eee}";
+
+                    return await GetResponse<T>(ee).ConfigureAwait(false);
+                }
+            }
+            else
+            {
+                string endpoint = $"/{content.ToString().ToLower()}";
+
+                string nl = $"{BaseUrl}{endpoint}";
+
+                return await GetResponse<T>(nl).ConfigureAwait(false);
+            }
         }
 
         //==========================================|make requests|==========================================
@@ -80,7 +121,14 @@ namespace animuSharp.ClientClass
         /// <returns>JSON-de-serialize class.</returns>
         private async Task<T> GetResponse<T>(string url)
         {
-            var response = await httpClient.GetAsync(url).ConfigureAwait(false);
+            var request = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(url),
+                Headers = { { "Authorization", Key } },
+            };
+
+            var response = await httpClient.SendAsync(request);
 
             switch (response.StatusCode)
             {
@@ -92,6 +140,9 @@ namespace animuSharp.ClientClass
 
                 case HttpStatusCode.Forbidden:
                     throw new Exception("You've exhausted your request limits");
+
+                case HttpStatusCode.InternalServerError:
+                    throw new Exception("Internal Server Error");
             }
 
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
