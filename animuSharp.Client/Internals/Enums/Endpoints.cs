@@ -375,6 +375,11 @@
         /// <summary>
         /// get a waifu and its info
         /// </summary>
-        Waifu
+        Waifu,
+
+        /// <summary>
+        /// get a husbando and its info
+        /// </summary>
+        husbando
     }
 }
