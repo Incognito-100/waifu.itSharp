@@ -1,73 +1,52 @@
-﻿using animuSharp.ClientClass.Internals.DataTypes;
-using animuSharp.ClientClass.Internals.Enums;
+﻿using animuSharp.CC.Internals.DataTypes;
+using animuSharp.CC.Internals.Enums;
 using Newtonsoft.Json;
 using System.Net;
 using System.Web;
 
-namespace animuSharp.ClientClass
+namespace animuSharp.CC
 {
     /// <summary>
     /// main method for interacting with the api
     /// </summary>
-    public class Client
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="Client"/> class.
+    /// </remarks>
+    /// <param name="apiKey">apiKey for making requests NOTE: it has a 5 requests/second rate-limit</param>
+    public class Client(string apiKey)
     {
         private const string BaseUrl = "https://waifu.it/api/v4";
-        private readonly string Key;
-        private static HttpClient httpClient = new HttpClient();
+        private static readonly HttpClient httpClient = new();
+        private readonly string apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Client"/> class.
+        ///Gets a URL of the desired content for image-based requests..
         /// </summary>
-        /// <param name="apiKey">apiKey for making requests NOTE: it has a 5 requests/second rate-limit</param>
-        public Client(string apiKey)
-        {
-            Key = apiKey;
-        }
-
-        /// <summary>
-        /// Gets a URL of the desired content.
-        /// </summary>
-        /// <param name="content">The type of content you want to get, select from <see cref="ImageContentType"/>.</param>
-        /// <returns>A URL of the selected item.</returns>
-        /// <exception cref="Exception"></exception>
         public async Task<Data.Generic> GetURl(ImageContentType content)
         {
-            string endpoint = $"/{content.ToString().ToLower()}";
+            string endpoint = $"{BaseUrl}/{content.ToString().ToLower()}";
 
-            string nl = $"{BaseUrl}{endpoint}";
-
-            return await GetResponse<Data.Generic>(nl).ConfigureAwait(false);
+            return await GetResponse<Data.Generic>(endpoint).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Gets a URL of the desired content.
+        /// Gets a URL of the desired content for text-based requests.
         /// </summary>
-        /// <param name="content">The type of content you want to get, select from <see cref="Textypes"/>.</param>
-        /// <param name="text"> the text you want to be used in the api call</param>
-        /// <returns>A URL of the selected item.</returns>
-        /// <exception cref="Exception"></exception>
         public async Task<Data.Text> GetURl(string text, Textypes content)
         {
-            string endpoint = $"/{content.ToString().ToLower()}";
-
-            string nl = $"{BaseUrl}{endpoint}";
-
             string encodedText = Uri.EscapeDataString(text);
 
-            string recont = $"{nl}?text={encodedText}";
+            string endpoint = $"{BaseUrl}/{content.ToString().ToLower()}?text={encodedText}";
 
-            return await GetResponse<Data.Text>(recont).ConfigureAwait(false);
+            return await GetResponse<Data.Text>(endpoint).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Gets a URL of the desired content.
+        /// Gets a URL of the desired content for miscellaneous requests (waifu, husbando, quote).
         /// </summary>
-        /// <param name="content">The type of content you want to get, select from <see cref="Misc"/>.</param>
-        /// <returns>A URL of the selected item.</returns>
-        /// <exception cref="Exception"></exception>
         public async Task<T> GetURl<T>(Misc content, string name = null, string anime = null)
         {
-            string endpoint = $"/{content.ToString().ToLower()}";
+            string endpoint = $"{BaseUrl}/{content.ToString().ToLower()}";
 
             if (content == Misc.Waifu || content == Misc.husbando)
             {
@@ -77,23 +56,22 @@ namespace animuSharp.ClientClass
             {
                 endpoint += GetQueryString(name, anime, "character", "anime");
             }
-            string url = $"{BaseUrl}{endpoint}";
-            return await GetResponse<T>(url).ConfigureAwait(false);
+            return await GetResponse<T>(endpoint).ConfigureAwait(false);
         }
 
-        private static string GetQueryString(string name, string anime, string nameParam, string animeParam)
+        private static string GetQueryString(string name, string anime, string param1, string Param2)
         {
             var queryParams = new List<string>();
 
             if (!string.IsNullOrEmpty(name))
             {
-                string f = $"{nameParam}={HttpUtility.UrlEncode(name)}";
+                string f = $"{param1}={HttpUtility.UrlEncode(name)}";
                 queryParams.Add(f);
             }
 
             if (!string.IsNullOrEmpty(anime))
             {
-                string f = $"{animeParam}={HttpUtility.UrlEncode(anime)}";
+                string f = $"{Param2}={HttpUtility.UrlEncode(anime)}";
                 queryParams.Add(f);
             }
 
@@ -120,7 +98,7 @@ namespace animuSharp.ClientClass
             {
                 Method = HttpMethod.Get,
                 RequestUri = new Uri(url),
-                Headers = { { "Authorization", Key } },
+                Headers = { { "Authorization", apiKey } },
             };
 
             var response = await httpClient.SendAsync(request);
