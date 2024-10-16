@@ -1,6 +1,7 @@
 ﻿using animuSharp.ClientClass.Internals.DataTypes.ExposedTypes;
 using animuSharp.ClientClass.Internals.Enums;
 using animuSharp.ClientClass;
+using System.Diagnostics;
 
 namespace animuSharp.Tests
 {
@@ -60,12 +61,12 @@ namespace animuSharp.Tests
             Client client = new(apikey);
 
             // Act
-            var result = await client.GetURl<Data.Waifu>(Misc.Waifu, "Kokomi Teruhashi");
+            var result = await client.GetURl<Data.Waifu>(Misc.Waifu, name: "Reiko Terayama");
 
-            var item = result.Name.Full;
+            var item = result.Gender;
 
             // Assert
-            Assert.Equal("Kokomi Teruhashi", item);
+            Assert.Equal("Female", item);
         }
 
         [Fact]
@@ -81,6 +82,21 @@ namespace animuSharp.Tests
 
             // Assert
             Assert.Equal("Male", item);
+        }
+
+        [Fact]
+        public async Task GetQuote_StateUnderTest_ExpectedBehavior()
+        {
+            // Arrange
+            Client client = new(apikey);
+
+            // Act
+            var result = await client.GetURl<Data.Quote>(Misc.quote, anime: "death note");
+
+            var item = result.Anime;
+
+            // Assert
+            Assert.Equal("Death Note", item);
         }
     }
 }
