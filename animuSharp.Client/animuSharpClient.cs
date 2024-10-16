@@ -67,48 +67,43 @@ namespace animuSharp.ClientClass
         /// <exception cref="Exception"></exception>
         public async Task<T> GetURl<T>(Misc content, string name = null, string anime = null)
         {
+            string endpoint = $"/{content.ToString().ToLower()}";
+
             if (content == Misc.Waifu || content == Misc.husbando)
             {
-                if (name != null && anime == null)
-                {
-                    string eee = $"/{content.ToString().ToLower()}?anime={HttpUtility.UrlEncode(anime)}";
+                endpoint += GetQueryString(name, anime, "name", "anime");
+            }
+            else if (content == Misc.quote)
+            {
+                endpoint += GetQueryString(name, anime, "character", "anime");
+            }
+            string url = $"{BaseUrl}{endpoint}";
+            return await GetResponse<T>(url).ConfigureAwait(false);
+        }
 
-                    string ee = $"{BaseUrl}{eee}";
+        private static string GetQueryString(string name, string anime, string nameParam, string animeParam)
+        {
+            var queryParams = new List<string>();
 
-                    return await GetResponse<T>(ee).ConfigureAwait(false);
-                }
-                else if (anime != null && name == null)
-                {
-                    string eee = $"/{content.ToString().ToLower()}?name={HttpUtility.UrlEncode(name)}";
+            if (!string.IsNullOrEmpty(name))
+            {
+                string f = $"{nameParam}={HttpUtility.UrlEncode(name)}";
+                queryParams.Add(f);
+            }
 
-                    string ee = $"{BaseUrl}{eee}";
+            if (!string.IsNullOrEmpty(anime))
+            {
+                string f = $"{animeParam}={HttpUtility.UrlEncode(anime)}";
+                queryParams.Add(f);
+            }
 
-                    return await GetResponse<T>(ee).ConfigureAwait(false);
-                }
-                else if (name != null && anime != null)
-                {
-                    string eee = $"/{content.ToString().ToLower()}?anime={HttpUtility.UrlEncode(anime)}&name={HttpUtility.UrlEncode(name)}";
-
-                    string ee = $"{BaseUrl}{eee}";
-
-                    return await GetResponse<T>(ee).ConfigureAwait(false);
-                }
-                else
-                {
-                    string eee = $"/{content.ToString().ToLower()}";
-
-                    string ee = $"{BaseUrl}{eee}";
-
-                    return await GetResponse<T>(ee).ConfigureAwait(false);
-                }
+            if (queryParams.Count != 0)
+            {
+                return $"?{string.Join("&", queryParams)}";
             }
             else
             {
-                string endpoint = $"/{content.ToString().ToLower()}";
-
-                string nl = $"{BaseUrl}{endpoint}";
-
-                return await GetResponse<T>(nl).ConfigureAwait(false);
+                return string.Empty;
             }
         }
 

@@ -6,7 +6,9 @@ namespace animuSharp.ClientClass.Internals.DataTypes
 {
     namespace ExposedTypes
     {
-        public class Data
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
+        public static class Data
         {
             public class Generic
             {
@@ -118,6 +120,7 @@ namespace animuSharp.ClientClass.Internals.DataTypes
     /// <summary>
     /// Data class containing various partial classes representing different data types.
     /// </summary>
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
     #region Data
 

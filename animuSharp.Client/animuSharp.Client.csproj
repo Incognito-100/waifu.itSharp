@@ -7,7 +7,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>animuSharp</PackageId>
     <Title> animuSharpThe waifu.it C# wrapper</Title>
-    <Version>2.2.0</Version>
+    <Version>2.3.0</Version>
     <Authors>IVH</Authors>
     <Company>IVH</Company>
     <Product>animuSharp</Product>
@@ -15,10 +15,12 @@
     <PackageProjectUrl>https://github.com/Incognito-100/waifu.itSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Incognito-100/waifu.itSharp</RepositoryUrl>
     <PackageTags>waifu.it,c#,wrapper</PackageTags>
-    <PackageReleaseNotes>made one method for intreraction (GetURl)
-instaid of one for each type(text,misc,waifu)</PackageReleaseNotes>
-    <AssemblyVersion>2.2.0</AssemblyVersion>
-    <FileVersion>2.2.0</FileVersion>
+    <PackageReleaseNotes>changed the http handler
+added paramaters to the waifu endpoint
+aded husbundo endpoint
+Changed Data type info for Waifu</PackageReleaseNotes>
+    <AssemblyVersion>2.3.0</AssemblyVersion>
+    <FileVersion>2.3.0</FileVersion>
     <Copyright>2023 - IVH</Copyright>
     <SignAssembly>False</SignAssembly>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
