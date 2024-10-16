@@ -1,7 +1,7 @@
-﻿using animuSharp.ClientClass.Internals.DataTypes.ExposedTypes;
-using animuSharp.ClientClass.Internals.Enums;
-using animuSharp.ClientClass;
+﻿using animuSharp.CC.Internals.DataTypes.ExposedTypes;
+using animuSharp.CC.Internals.Enums;
 using System.Diagnostics;
+using animuSharp.CC;
 
 namespace animuSharp.Tests
 {

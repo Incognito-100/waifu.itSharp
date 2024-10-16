@@ -1,4 +1,4 @@
-﻿namespace animuSharp.ClientClass.Internals.Enums
+﻿namespace animuSharp.CC.Internals.Enums
 {
     /// <summary>
     /// the type of content you want
