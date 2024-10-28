@@ -1,8 +1,7 @@
 ﻿using Newtonsoft.Json;
-using static animuSharp.CC.Internals.DataTypes.Data;
-using static animuSharp.CC.Internals.DataTypes.Data.husbandodata;
+using static animuSharp.Client.Internals.DataTypes.Data.husbandodata;
 
-namespace animuSharp.CC.Internals.DataTypes
+namespace animuSharp.Client.Internals.DataTypes
 {
     namespace ExposedTypes
     {

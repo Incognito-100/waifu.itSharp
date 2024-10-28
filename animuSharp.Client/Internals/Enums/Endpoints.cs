@@ -1,4 +1,4 @@
-﻿namespace animuSharp.CC.Internals.Enums
+﻿namespace animuSharp.Client.Internals.Enums
 {
     /// <summary>
     /// the type of content you want
@@ -348,7 +348,7 @@
     }
 
     /// <summary>
-    /// misalaniose endpoints
+    /// miscellaneous endpoints
     /// </summary>
     public enum Misc
     {

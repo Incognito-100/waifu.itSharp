@@ -1,19 +1,17 @@
-﻿using animuSharp.CC.Internals.DataTypes.ExposedTypes;
-using animuSharp.CC.Internals.Enums;
-using System.Diagnostics;
-using animuSharp.CC;
+﻿using animuSharp.Client.Internals.DataTypes.ExposedTypes;
+using animuSharp.Client.Internals.Enums;
 
 namespace animuSharp.Tests
 {
     public class ClientTests
     {
-        private const string apikey = "";
+        private const string Apikey = "";
 
         [Fact]
         public async Task GetGenericURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new(apikey);
+            Client.Client client = new(Apikey);
 
             // Act
             var result = await client.GetURl(ImageContentType.angry);
@@ -28,7 +26,7 @@ namespace animuSharp.Tests
         public async Task GetTextURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new(apikey);
+            Client.Client client = new(Apikey);
 
             // Act
             var result = await client.GetURl("Hello world", Textypes.owoify);
@@ -43,7 +41,7 @@ namespace animuSharp.Tests
         public async Task GetMiscURl_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new(apikey);
+            Client.Client client = new(Apikey);
 
             // Act
             var result = await client.GetURl<Data.Waifu>(Misc.Waifu);
@@ -58,7 +56,7 @@ namespace animuSharp.Tests
         public async Task GetWaifuName_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new(apikey);
+            Client.Client client = new(Apikey);
 
             // Act
             var result = await client.GetURl<Data.Waifu>(Misc.Waifu, name: "Reiko Terayama");
@@ -73,7 +71,7 @@ namespace animuSharp.Tests
         public async Task Gethusbando_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new(apikey);
+            Client.Client client = new(Apikey);
 
             // Act
             var result = await client.GetURl<Data.Husbando>(Misc.husbando);
@@ -88,7 +86,7 @@ namespace animuSharp.Tests
         public async Task GetQuote_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            Client client = new(apikey);
+            Client.Client client = new(Apikey);
 
             // Act
             var result = await client.GetURl<Data.Quote>(Misc.quote, anime: "death note");

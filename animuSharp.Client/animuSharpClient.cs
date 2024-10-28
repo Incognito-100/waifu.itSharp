@@ -1,10 +1,10 @@
-﻿using animuSharp.CC.Internals.DataTypes;
-using animuSharp.CC.Internals.Enums;
+﻿using animuSharp.Client.Internals.DataTypes;
+using animuSharp.Client.Internals.Enums;
 using Newtonsoft.Json;
 using System.Net;
 using System.Web;
 
-namespace animuSharp.CC
+namespace animuSharp.Client
 {
     /// <summary>
     /// main method for interacting with the api
@@ -12,12 +12,12 @@ namespace animuSharp.CC
     /// <remarks>
     /// Initializes a new instance of the <see cref="Client"/> class.
     /// </remarks>
-    /// <param name="apiKey">apiKey for making requests NOTE: it has a 5 requests/second rate-limit</param>
+    /// <param name="apiKey">apiKey for making requests NOTE: it has a5 requests/second rate-limit</param>
     public class Client(string apiKey)
     {
         private const string BaseUrl = "https://waifu.it/api/v4";
-        private static readonly HttpClient httpClient = new();
-        private readonly string apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
+        private static readonly HttpClient HttpClient = new();
+        private readonly string _apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
 
         /// <summary>
         ///Gets a URL of the desired content for image-based requests..
@@ -46,20 +46,22 @@ namespace animuSharp.CC
         /// </summary>
         public async Task<T> GetURl<T>(Misc content, string name = null, string anime = null)
         {
-            string endpoint = $"{BaseUrl}/{content.ToString().ToLower()}";
+            string queryString = $"{BaseUrl}/{content.ToString().ToLower()}";
 
-            if (content == Misc.Waifu || content == Misc.husbando)
+            switch (content)
             {
-                endpoint += GetQueryString(name, anime, "name", "anime");
+                case Misc.Waifu or Misc.husbando:
+                    queryString += GetQueryString(name, anime, "name", "anime");
+                    break;
+
+                case Misc.quote:
+                    queryString += GetQueryString(name, anime, "character", "anime");
+                    break;
             }
-            else if (content == Misc.quote)
-            {
-                endpoint += GetQueryString(name, anime, "character", "anime");
-            }
-            return await GetResponse<T>(endpoint).ConfigureAwait(false);
+            return await GetResponse<T>(queryString).ConfigureAwait(false);
         }
 
-        private static string GetQueryString(string name, string anime, string param1, string Param2)
+        private static string GetQueryString(string name, string anime, string param1, string param2)
         {
             var queryParams = new List<string>();
 
@@ -71,7 +73,7 @@ namespace animuSharp.CC
 
             if (!string.IsNullOrEmpty(anime))
             {
-                string f = $"{Param2}={HttpUtility.UrlEncode(anime)}";
+                string f = $"{param2}={HttpUtility.UrlEncode(anime)}";
                 queryParams.Add(f);
             }
 
@@ -98,10 +100,10 @@ namespace animuSharp.CC
             {
                 Method = HttpMethod.Get,
                 RequestUri = new Uri(url),
-                Headers = { { "Authorization", apiKey } },
+                Headers = { { "Authorization", _apiKey } },
             };
 
-            var response = await httpClient.SendAsync(request);
+            var response = await HttpClient.SendAsync(request);
 
             switch (response.StatusCode)
             {
