@@ -30,7 +30,7 @@ Changed Data type info for Waifu</PackageReleaseNotes>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DebugType>embedded</DebugType>
+    <DebugType>none</DebugType>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\LICENSE.txt">
