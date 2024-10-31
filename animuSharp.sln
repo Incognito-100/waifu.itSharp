@@ -20,6 +20,7 @@ Global
 		{D865B662-BDDB-45BE-9861-0A661BB84E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D865B662-BDDB-45BE-9861-0A661BB84E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D865B662-BDDB-45BE-9861-0A661BB84E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D865B662-BDDB-45BE-9861-0A661BB84E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
