@@ -4,7 +4,7 @@
     ///     the type of content you want
     /// </summary>
     public enum ImageContentType
-	{
+    {
         /// <summary>
         ///     Returns a single random angry gif
         /// </summary>
@@ -324,13 +324,13 @@
         ///     Returns a single random yes gif
         /// </summary>
         yes,
-	}
+    }
 
     /// <summary>
     ///     Text contentypes
     /// </summary>
     public enum Textypes
-	{
+    {
         /// <summary>
         ///     owoify text
         /// </summary>
@@ -345,13 +345,13 @@
         ///     uwuify text
         /// </summary>
         uwuify,
-	}
+    }
 
     /// <summary>
     ///     miscellaneous endpoints
     /// </summary>
     public enum Misc
-	{
+    {
         /// <summary>
         ///     Returns a single random fact gif
         /// </summary>
@@ -381,5 +381,5 @@
         ///     get a husbando and its info
         /// </summary>
         husbando
-	}
+    }
 }

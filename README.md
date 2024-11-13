@@ -1,7 +1,6 @@
+# AnimuSharp
 
-# Waifu.itCSharp
-
-a c# APIi wrapper for Waifu.it
+A C# API wrapper for Waifu.it, providing easy access to anime-related content.
 
 ## Installation
 
@@ -26,7 +25,11 @@ Install Waifu.itCSharp with nugget
 
 ## Documentation
 
-[Documentation](https://ivh.gitbook.io/animu-sharp/)
+- [Getting Started](docs/getting-started.md)
+- [Basic Usage Guide](docs/basic-usage.md)
+- [API Reference](docs/api-reference.md)
+- [Code Examples](docs/examples.md)
+- [Changelog](CHANGELOG.md)
 
 
 ## FAQ
@@ -53,5 +56,3 @@ Yes, You can generate an API key from the animu [discord](https://discord.gg/yyW
 ## Contributing
 
 Contributions are always welcome!
-
-
