@@ -1,4 +1,3 @@
-using animuSharp.Client.Internals.DataTypes;
 using animuSharp.Client.Internals.Enums;
 
 namespace animuSharp.Tests
@@ -98,13 +97,13 @@ namespace animuSharp.Tests
             Client.Client client = new(Apikey);
 
             // Act
-            var result = await client.GetQuote(character: "Saki Kusuo");
+            var result = await client.GetQuote(character: "Saiki Kusuo");
 
             // Assert
             Assert.NotNull(result);
             Assert.NotNull(result.Content);
             Assert.NotNull(result.Author);
-            Assert.Contains("Saki Kusuo", result.Author, StringComparison.OrdinalIgnoreCase);
+            Assert.Contains("Saiki Kusuo", result.Author, StringComparison.OrdinalIgnoreCase);
         }
 
         [Fact]
@@ -208,7 +207,7 @@ namespace animuSharp.Tests
             // Assert
             Assert.NotNull(result.Media);
             Assert.NotNull(result.Media.Nodes);
-            
+
             foreach (var mediaEntry in result.Media.Nodes)
             {
                 Assert.NotNull(mediaEntry.Id);

@@ -1,6 +1,26 @@
 # Changelog
 
-## [2.0.0] - 2024
+## [2.4.1] - 2024
+### Added
+- Added comprehensive user-friendly documentation for all data types
+- Added detailed explanations for anime/manga-specific concepts
+- Added context-specific documentation for properties like blood types and character names
+- Added clear descriptions for all character attributes and media information
+- documentation strings for
+
+### Changed
+- Converted all classes to records in Data.cs for better immutability and value semantics
+- Improved property documentation to be more approachable for non-technical users
+- Enhanced readability of documentation with practical examples
+- Reorganized properties for better logical grouping
+
+### Improved
+- Documentation now explains anime-specific terms and concepts
+- Better descriptions for multilingual properties (names, titles)
+- Clearer explanations for media types and formats
+- More intuitive property descriptions for character information
+
+## [2.4.0] - 2024
 
 ### Breaking Changes
 - Removed generic `GetURl<T>` method for Misc endpoints in favor of specific endpoint methods
@@ -43,11 +63,3 @@
 - Fixed potential null reference issues with collections
 - Improved type safety for date properties
 - Made property names more consistent across classes
-
-### Developer Experience
-- Added more intuitive method names
-- Improved IntelliSense support with specific return types
-- Added XML documentation for better IDE support
-- Simplified API usage by removing need for generic type parameters
-- Added comprehensive examples and best practices
-- Improved documentation organization and accessibility
