@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.4.2] - 2025
+### Changed
+- changed `animuSharpClient` to use a primary constructor
+
 ## [2.4.1] - 2024
 ### Added
 - Added comprehensive user-friendly documentation for all data types

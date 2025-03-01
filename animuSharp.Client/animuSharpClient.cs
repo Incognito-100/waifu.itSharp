@@ -9,20 +9,15 @@ namespace animuSharp.Client
     /// <summary>
     ///     main method for interacting with the api
     /// </summary>
-    public class Client
+    /// <remarks>
+    ///     Initializes a new instance of the <see cref="Client" /> class.
+    /// </remarks>
+    /// <param name="apiKey">apiKey for making requests NOTE: it has a5 requests/second rate-limit</param>
+    public class Client(string apiKey)
     {
         private const string BaseUrl = "https://waifu.it/api/v4";
         private static readonly HttpClient HttpClient = new();
-        private readonly string _apiKey;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Client" /> class.
-        /// </summary>
-        /// <param name="apiKey">apiKey for making requests NOTE: it has a5 requests/second rate-limit</param>
-        public Client(string apiKey)
-        {
-            _apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
-        }
+        private readonly string _apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
 
         /// <summary>
         ///     Gets a URL of the desired content for image-based requests.
