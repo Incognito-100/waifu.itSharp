@@ -1,5 +1,6 @@
 using animuSharp.Client.Internals.DataTypes;
 using animuSharp.Client.Internals.Enums;
+using animuSharp.Client.Internals.Exceptions;
 using Newtonsoft.Json;
 using System.Net;
 using System.Web;
@@ -135,16 +136,27 @@ namespace animuSharp.Client
             switch (response.StatusCode)
             {
                 case HttpStatusCode.NotFound:
-                    throw new Exception("Not Found");
+                    throw new AnimuSharpNotFoundException($"The requested resource was not found. URL: {url}");
 
                 case HttpStatusCode.OK:
                     break;
 
                 case HttpStatusCode.Forbidden:
-                    throw new Exception("You've exhausted your request limits");
+                    throw new AnimuSharpForbiddenException($"Access to the resource is forbidden. This might be due to an invalid API key or rate limiting. URL: {url}");
 
                 case HttpStatusCode.InternalServerError:
-                    throw new Exception("Internal Server Error");
+                    throw new AnimuSharpServerErrorException($"An internal server error occurred while processing the request. URL: {url}");
+
+                default:
+                    // It's good practice to handle unexpected status codes as well.
+                    // You could throw a generic AnimuSharpApiException or let it fall through
+                    // if the API guarantees only the above status codes on error.
+                    // For now, we'll assume other codes might indicate an issue not covered by specific exceptions.
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new AnimuSharpApiException($"An unexpected error occurred. Status code: {response.StatusCode}. URL: {url}");
+                    }
+                    break;
             }
 
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);

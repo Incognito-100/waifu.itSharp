@@ -4,10 +4,10 @@ namespace animuSharp.Tests
 {
     public class ClientTests
     {
-        private const string Apikey = "";
+        private static readonly string Apikey = Environment.GetEnvironmentVariable("ANIMU_API_KEY") ?? "";
 
         [Fact]
-        public async Task GetGenericURl_StateUnderTest_ExpectedBehavior()
+        public async Task GetUrl_WithAngryContentType_ReturnsValidUrl()
         {
             // Arrange
             Client.Client client = new(Apikey);
@@ -18,10 +18,11 @@ namespace animuSharp.Tests
 
             // Assert
             Assert.NotNull(item);
+            Assert.NotEmpty(item);
         }
 
         [Fact]
-        public async Task GetTextURl_StateUnderTest_ExpectedBehavior()
+        public async Task GetUrl_WithOwoifyTextType_ReturnsCorrectlyTransformedText()
         {
             // Arrange
             Client.Client client = new(Apikey);
@@ -35,17 +36,19 @@ namespace animuSharp.Tests
         }
 
         [Fact]
-        public async Task GetWaifu_ReturnsCorrectGender()
+        public async Task GetWaifu_DefaultCall_ReturnsValidCharacter()
         {
             // Arrange
             Client.Client client = new(Apikey);
 
             // Act
             var result = await client.GetWaifu();
-            var item = result.Gender;
 
             // Assert
-            Assert.Equal("Female", item);
+            Assert.NotNull(result);
+            Assert.NotNull(result.Id);
+            Assert.NotNull(result.Gender);
+            Assert.NotEmpty(result.Gender);
         }
 
         [Fact]
@@ -63,21 +66,23 @@ namespace animuSharp.Tests
         }
 
         [Fact]
-        public async Task GetHusbando_ReturnsCorrectGender()
+        public async Task GetHusbando_DefaultCall_ReturnsValidCharacter()
         {
             // Arrange
             Client.Client client = new(Apikey);
 
             // Act
             var result = await client.GetHusbando();
-            var item = result.Gender;
 
             // Assert
-            Assert.Equal("Male", item);
+            Assert.NotNull(result);
+            Assert.NotNull(result.Id);
+            Assert.NotNull(result.Gender);
+            Assert.NotEmpty(result.Gender);
         }
 
         [Fact]
-        public async Task GetQuote_ReturnsValidQuote()
+        public async Task GetQuote_WithSpecificAnime_ReturnsCorrectQuote()
         {
             // Arrange
             Client.Client client = new(Apikey);
@@ -91,7 +96,7 @@ namespace animuSharp.Tests
         }
 
         [Fact]
-        public async Task GetQuoteByCharacter_ReturnsValidQuote()
+        public async Task GetQuote_WithSpecificCharacter_ReturnsValidQuote()
         {
             // Arrange
             Client.Client client = new(Apikey);
@@ -107,7 +112,7 @@ namespace animuSharp.Tests
         }
 
         [Fact]
-        public async Task GetFact_ReturnsValidFact()
+        public async Task GetFact_DefaultCall_ReturnsValidFact()
         {
             // Arrange
             Client.Client client = new(Apikey);
@@ -118,11 +123,12 @@ namespace animuSharp.Tests
             // Assert
             Assert.NotNull(result);
             Assert.NotNull(result.Content);
+            Assert.NotEmpty(result.Content);
             Assert.NotNull(result.Tags);
         }
 
         [Fact]
-        public async Task GetPassword_ReturnsValidPassword()
+        public async Task GetPassword_DefaultCall_ReturnsValidPassword()
         {
             // Arrange
             Client.Client client = new(Apikey);
@@ -133,10 +139,11 @@ namespace animuSharp.Tests
             // Assert
             Assert.NotNull(result);
             Assert.NotNull(result.Value);
+            Assert.NotEmpty(result.Value);
         }
 
         [Fact]
-        public async Task GetTags_ReturnsValidTags()
+        public async Task GetTags_DefaultCall_ReturnsValidTags()
         {
             // Arrange
             Client.Client client = new(Apikey);

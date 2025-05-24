@@ -130,13 +130,15 @@ var client = new Client(apiKey);
 
 ### 2. Rate Limit Handling
 ```csharp
+// Ensure you have: using animuSharp.Client.Internals.Exceptions;
 try
 {
     var result = await client.GetWaifu();
 }
-catch (Exception ex) when (ex.Message.Contains("request limits"))
+catch (AnimuSharpForbiddenException ex) // Catches 403 errors, often due to rate limits or invalid API key
 {
-    // Wait before retrying
+    Console.WriteLine($"Rate limit likely hit or API key issue: {ex.Message}");
+    // Wait before retrying if it's a rate limit issue
     await Task.Delay(1000);
     // Retry request
 }
@@ -166,29 +168,62 @@ if (character.Media?.Nodes != null)
 ```
 
 ### 4. Error Handling
+
+The library now uses a set of custom exceptions to provide more detailed error information. These exceptions are located in the `animuSharp.Client.Internals.Exceptions` namespace. It's recommended to include this namespace when handling errors.
+
 ```csharp
+using animuSharp.Client;
+using animuSharp.Client.Internals.Exceptions; // Important for custom exceptions
+
+// Assume 'client' is already initialized:
+// var client = new Client("your_api_key_here");
+
 try
 {
-    var result = await client.GetWaifu();
+    var waifu = await client.GetWaifu();
+    // ... process data
 }
-catch (ArgumentNullException)
+catch (AnimuSharpNotFoundException ex)
 {
-    // Handle missing API key
+    // Occurs when the requested resource (e.g., a specific character or image type) is not found (HTTP 404).
+    Console.WriteLine($"Resource not found: {ex.Message}");
+    // Handle cases where the specific waifu, quote, etc., isn't found.
 }
-catch (Exception ex) when (ex.Message == "Not Found")
+catch (AnimuSharpForbiddenException ex)
 {
-    // Handle not found
+    // Occurs when access to the resource is forbidden (HTTP 403).
+    // This can be due to an invalid API key, or because request limits have been exceeded.
+    Console.WriteLine($"Access forbidden: {ex.Message}");
+    // Handle API key issues or rate limiting.
 }
-catch (Exception ex) when (ex.Message.Contains("request limits"))
+catch (AnimuSharpServerErrorException ex)
 {
-    // Handle rate limit
+    // Occurs when the API server encounters an internal error (HTTP 500+).
+    Console.WriteLine($"Server error: {ex.Message}");
+    // Handle issues on the API provider's side, possibly by retrying later.
+}
+catch (AnimuSharpApiException ex)
+{
+    // This is a base class for other specific API exceptions.
+    // It can also be thrown for other API-related errors that don't fit the more specific categories.
+    Console.WriteLine($"API error: {ex.Message}");
+    // Handle other API related errors.
 }
 catch (Exception ex)
 {
-    // Handle other errors
-    Console.WriteLine($"Error: {ex.Message}");
+    // Catches any other non-API related exceptions that might occur in your code.
+    Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+    // Handle other non-API errors.
 }
 ```
+
+**Brief explanation of common custom exceptions:**
+-   `AnimuSharpNotFoundException`: Indicates that the requested resource could not be found on the server (404).
+-   `AnimuSharpForbiddenException`: Indicates that access to the resource is denied, often due to an invalid/missing API key or exceeding rate limits (403).
+-   `AnimuSharpServerErrorException`: Indicates an issue on the server-side (5xx errors).
+-   `AnimuSharpApiException`: The base exception for API-related errors. Useful for catching any API error not handled by the more specific exceptions.
+
+It's good practice to import the `animuSharp.Client.Internals.Exceptions` namespace to easily access these custom exception types.
 
 ## Common Issues
 
@@ -223,25 +258,29 @@ try
 {
     var character = await client.GetWaifu(name: "NonExistentCharacter");
 }
-catch (Exception ex) when (ex.Message == "Not Found")
+catch (AnimuSharpNotFoundException ex)
 {
-    Console.WriteLine("Character not found");
-    // Fall back to random character
-    character = await client.GetWaifu();
+    Console.WriteLine($"Character not found: {ex.Message}");
+    // Fall back to random character or handle as appropriate
+    // character = await client.GetWaifu();
 }
 ```
 
 ### Invalid API Key
-Handle invalid API key scenarios:
+Handle invalid API key scenarios. This typically results in a `AnimuSharpForbiddenException`.
 
 ```csharp
+// Ensure you have: using animuSharp.Client.Internals.Exceptions;
+// Assume 'client' is initialized with an invalid key, e.g.:
+// var client = new Client("invalid_or_empty_api_key");
+
 try
 {
-    var client = new Client("invalid_key");
     var result = await client.GetWaifu();
 }
-catch (Exception ex) when (ex.Message == "Forbidden")
+catch (AnimuSharpForbiddenException ex)
 {
-    Console.WriteLine("Invalid API key. Please check your credentials.");
+    Console.WriteLine($"Invalid API key or access forbidden: {ex.Message}");
+    // Advise the user to check their API key and that it's correctly set up.
 }
 ```
