@@ -1,4 +1,4 @@
-﻿namespace animuSharp.Client.Internals.Enums
+namespace animuSharp.Client.Internals.Enums
 {
     /// <summary>
     ///     the type of content you want
@@ -8,192 +8,192 @@
         /// <summary>
         ///     Returns a single random angry gif
         /// </summary>
-        Angry,
+        angry,
 
         /// <summary>
         ///     Returns a single random baka gif
         /// </summary>
-        Baka,
+        baka,
 
         /// <summary>
         ///     Returns a single random angry gif
         /// </summary>
-        Bite,
+        bite,
 
         /// <summary>
         ///     Returns a single random blush gif
         /// </summary>
-        Blush,
+        blush,
 
         /// <summary>
         ///     Returns a single random bonk gif
         /// </summary>
-        Bonk,
+        bonk,
 
         /// <summary>
         ///     Returns a single random bored gif
         /// </summary>
-        Bored,
+        bored,
 
         /// <summary>
         ///     Returns a single random bully gif
         /// </summary>
-        Bully,
+        bully,
 
         /// <summary>
         ///     Returns a single random bye gif
         /// </summary>
-        Bye,
+        bye,
 
         /// <summary>
         ///     Returns a single random chase gif
         /// </summary>
-        Chase,
+        chase,
 
         /// <summary>
         ///     Returns a single random cheer gif
         /// </summary>
-        Cheer,
+        cheer,
 
         /// <summary>
         ///     Returns a single random cringe gif
         /// </summary>
-        Cringe,
+        cringe,
 
         /// <summary>
         ///     Returns a single random cry gif
         /// </summary>
-        Cry,
+        cry,
 
         /// <summary>
         ///     Returns a single random cuddle gif
         /// </summary>
-        Cuddle,
+        cuddle,
 
         /// <summary>
         ///     Returns a single random dab gif
         /// </summary>
-        Dab,
+        dab,
 
         /// <summary>
         ///     Returns a single random dance gif
         /// </summary>
-        Dance,
+        dance,
 
         /// <summary>
         ///     Returns a single random die gif
         /// </summary>
-        Die,
+        die,
 
         /// <summary>
         ///     Returns a single random disgust gif
         /// </summary>
-        Disgust,
+        disgust,
 
         /// <summary>
         ///     Returns a single random facepalm gif
         /// </summary>
-        Facepalm,
+        facepalm,
 
         /// <summary>
         ///     Returns a single random feed gif
         /// </summary>
-        Feed,
+        feed,
 
         /// <summary>
         ///     Returns a single random glomp gif
         /// </summary>
-        Glomp,
+        glomp,
 
         /// <summary>
         ///     Returns a single random happy gif
         /// </summary>
-        Happy,
+        happy,
 
         /// <summary>
         ///     Returns a single random hi gif
         /// </summary>
-        Hi,
+        hi,
 
         /// <summary>
         ///     Returns a single random highfive gif
         /// </summary>
-        Highfive,
+        highfive,
 
         /// <summary>
         ///     Returns a single random hold gif
         /// </summary>
-        Hold,
+        hold,
 
         /// <summary>
         ///     Returns a single random hug gif
         /// </summary>
-        Hug,
+        hug,
 
         /// <summary>
         ///     Returns a single random kick gif
         /// </summary>
-        Kick,
+        kick,
 
         /// <summary>
         ///     Returns a single random kill gif
         /// </summary>
-        Kill,
+        kill,
 
         /// <summary>
         ///     Returns a single random kiss gif
         /// </summary>
-        Kiss,
+        kiss,
 
         /// <summary>
         ///     Returns a single random laugh gif
         /// </summary>
-        Laugh,
+        laugh,
 
         /// <summary>
         ///     Returns a single random lick gif
         /// </summary>
-        Lick,
+        lick,
 
         /// <summary>
         ///     Returns a single random love gif
         /// </summary>
-        Love,
+        love,
 
         /// <summary>
         ///     Returns a single random lurk gif
         /// </summary>
-        Lurk,
+        lurk,
 
         /// <summary>
         ///     Returns a single random midel finger gif
         /// </summary>
-        Midfing,
+        midfing,
 
         /// <summary>
         ///     Returns a single random nervous gif
         /// </summary>
-        Nervous,
+        nervous,
 
         /// <summary>
         ///     Returns a single random nom gif
         /// </summary>
-        Nom,
+        nom,
 
         /// <summary>
         ///     Returns a single random nope gif
         /// </summary>
-        Nope,
+        nope,
 
         /// <summary>
         ///     Returns a single random nuzzle gif
         /// </summary>
-        Nuzzle,
+        nuzzle,
 
         /// <summary>
         ///     Returns a single random panic gif
         /// </summary>
-        Panic,
+        panic,
 
         /// <summary>
         ///     Returns a single random pat gif
@@ -203,107 +203,107 @@
         /// <summary>
         ///     Returns a single random peck gif
         /// </summary>
-        Peck,
+        peck,
 
         /// <summary>
         ///     Returns a single random poke gif
         /// </summary>
-        Poke,
+        poke,
 
         /// <summary>
         ///     Returns a single random pout gif
         /// </summary>
-        Pout,
+        pout,
 
         /// <summary>
         ///     Returns a single random punch gif
         /// </summary>
-        Punch,
+        punch,
 
         /// <summary>
         ///     Returns a single random run gif
         /// </summary>
-        Run,
+        run,
 
         /// <summary>
         ///     Returns a single random sad gif
         /// </summary>
-        Sad,
+        sad,
 
         /// <summary>
         ///     Returns a single random shoot gif
         /// </summary>
-        Shoot,
+        shoot,
 
         /// <summary>
         ///     Returns a single random shrug gif
         /// </summary>
-        Shrug,
+        shrug,
 
         /// <summary>
         ///     Returns a single random sip gif
         /// </summary>
-        Sip,
+        sip,
 
         /// <summary>
         ///     Returns a single random slap gif
         /// </summary>
-        Slap,
+        slap,
 
         /// <summary>
         ///     Returns a single random sleepy gif
         /// </summary>
-        Sleepy,
+        sleepy,
 
         /// <summary>
         ///     Returns a single random smile gif
         /// </summary>
-        Smile,
+        smile,
 
         /// <summary>
         ///     Returns a single random smug gif
         /// </summary>
-        Smug,
+        smug,
 
         /// <summary>
         ///     Returns a single random stab gif
         /// </summary>
-        Stab,
+        stab,
 
         /// <summary>
         ///     Returns a single random stare gif
         /// </summary>
-        Stare,
+        stare,
 
         /// <summary>
         ///     Returns a single random suicide gif
         /// </summary>
-        Suicide,
+        suicide,
 
         /// <summary>
         ///     Returns a single random tease gif
         /// </summary>
-        Tease,
+        tease,
 
         /// <summary>
         ///     Returns a single random think gif
         /// </summary>
-        Think,
+        think,
 
         /// <summary>
         ///     Returns a single random thumbs up gif
         /// </summary>
-        Thumbsup,
+        thumbsup,
 
         /// <summary>
         ///     Returns a single random tickle gif
         /// </summary>
-        Tickle,
+        tickle,
 
         /// <summary>
         ///     Returns a single random triggered gif
         /// </summary>
-        Triggered,
+        triggered,
 
         /// <summary>
         ///     Returns a single random Wag gif
@@ -313,17 +313,17 @@
         /// <summary>
         ///     Returns a single random wave gif
         /// </summary>
-        Wave,
+        wave,
 
         /// <summary>
         ///     Returns a single random wink gif
         /// </summary>
-        Wink,
+        wink,
 
         /// <summary>
         ///     Returns a single random yes gif
         /// </summary>
-        Yes,
+        yes,
     }
 
     /// <summary>
@@ -334,17 +334,17 @@
         /// <summary>
         ///     owoify text
         /// </summary>
-        Owoify,
+        owoify,
 
         /// <summary>
         ///     uvuify text
         /// </summary>
-        Uvuify,
+        uvuify,
 
         /// <summary>
         ///     uwuify text
         /// </summary>
-        Uwuify,
+        uwuify,
     }
 
     /// <summary>
@@ -355,17 +355,17 @@
         /// <summary>
         ///     Returns a single random fact gif
         /// </summary>
-        Fact,
+        fact,
 
         /// <summary>
         ///     Generates a random password
         /// </summary>
-        Password,
+        password,
 
         /// <summary>
         ///     Returns a single random anime quote
         /// </summary>
-        Quote,
+        quote,
 
         /// <summary>
         ///     Get a list of available tags that can be used for specific queries in certain endpoints
@@ -380,6 +380,6 @@
         /// <summary>
         ///     get a husbando and its info
         /// </summary>
-        Husbando
+        husbando
     }
 }
