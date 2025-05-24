@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="animuSharp.Client/animuSharp.Client.csproj" />
+  <Project Path="animuSharp.Tests/animuSharp.Tests.csproj" />
+</Solution>
