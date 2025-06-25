@@ -148,10 +148,6 @@ namespace animuSharp.Client
                     throw new AnimuSharpServerErrorException($"An internal server error occurred while processing the request. URL: {url}");
 
                 default:
-                    // It's good practice to handle unexpected status codes as well.
-                    // You could throw a generic AnimuSharpApiException or let it fall through
-                    // if the API guarantees only the above status codes on error.
-                    // For now, we'll assume other codes might indicate an issue not covered by specific exceptions.
                     if (!response.IsSuccessStatusCode)
                     {
                         throw new AnimuSharpApiException($"An unexpected error occurred. Status code: {response.StatusCode}. URL: {url}");
@@ -161,7 +157,7 @@ namespace animuSharp.Client
 
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-            return JsonConvert.DeserializeObject<T>(content);
+            return System.Text.Json.JsonSerializer.Deserialize<T>(content);
         }
     }
 }

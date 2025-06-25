@@ -139,7 +139,6 @@ public class Fact
 {
     public long? Id { get; set; }         // Fact ID
     public string Content { get; set; }    // Fact text
-    public List<string> Tags { get; set; } // Related tags
 }
 ```
 
